@@ -1,0 +1,90 @@
+{
+  "all_passed": true,
+  "num_cases": 3,
+  "num_passed": 3,
+  "results": [
+    {
+      "case": "normal_agent",
+      "passed": true,
+      "success": true,
+      "fallback_used": false,
+      "metadata": {
+        "requested_mode": "genrec_gru",
+        "used_mode": "genrec_gru",
+        "model_loaded": true,
+        "load_error": null,
+        "num_returned": 10,
+        "agent_name": "GenerativeRecAgent",
+        "attempt": 1
+      },
+      "num_items": 10,
+      "latency_ms": 0.8098749676719308
+    },
+    {
+      "case": "missing_model_fallback",
+      "passed": true,
+      "success": true,
+      "fallback_used": true,
+      "metadata": {
+        "requested_mode": "genrec_gru",
+        "used_mode": "semantic_neighbor_fallback",
+        "model_loaded": false,
+        "load_error": "Model file not found: models/not_exist_genrec_gru.pt",
+        "num_returned": 10,
+        "agent_name": "GenerativeRecAgent",
+        "attempt": 1
+      },
+      "num_items": 10,
+      "latency_ms": 0.1745420740917325
+    },
+    {
+      "case": "unknown_user_api",
+      "passed": true,
+      "status_code": 404,
+      "body": {
+        "detail": {
+          "message": "User not found or user profile construction failed.",
+          "user_id": "UNKNOWN_USER_FOR_FALLBACK_TEST",
+          "trace": [
+            {
+              "agent": "UserProfileAgent",
+              "success": false,
+              "latency_ms": 0.06845896132290363,
+              "fallback_used": true,
+              "metadata": {
+                "known_users": 845,
+                "agent_name": "UserProfileAgent",
+                "attempt": 1
+              },
+              "error": "User not found in user_sequences: UNKNOWN_USER_FOR_FALLBACK_TEST"
+            },
+            {
+              "agent": "GenerativeRecAgent",
+              "success": false,
+              "latency_ms": 0.0,
+              "fallback_used": true,
+              "metadata": {},
+              "error": "Skipped because user_context is missing."
+            },
+            {
+              "agent": "FilterAgent",
+              "success": false,
+              "latency_ms": 0.0,
+              "fallback_used": true,
+              "metadata": {},
+              "error": "Skipped because candidates are missing."
+            },
+            {
+              "agent": "MarketingAgent",
+              "success": false,
+              "latency_ms": 0.0,
+              "fallback_used": true,
+              "metadata": {},
+              "error": "Skipped because filtered_candidates are missing."
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

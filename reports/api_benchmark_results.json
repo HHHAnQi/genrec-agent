@@ -1,0 +1,1035 @@
+{
+  "summary": {
+    "url": "http://127.0.0.1:8000/recommend",
+    "mode": "genrec_gru",
+    "top_k": 10,
+    "num_requests": 100,
+    "concurrency": 10,
+    "success_count": 100,
+    "failure_count": 0,
+    "success_rate": 1.0,
+    "fallback_rate": 0.0,
+    "avg_items_returned": 9.98,
+    "client_latency_ms": {
+      "avg": 14.476575033040717,
+      "p50": 13.812229444738477,
+      "p95": 21.14437292329967,
+      "p99": 22.757195957237858,
+      "min": 7.375124958343804,
+      "max": 23.448999971151352
+    },
+    "server_latency_ms": {
+      "avg": 11.194861738476902,
+      "p50": 11.623958474956453,
+      "p95": 12.502703804057091,
+      "p99": 12.924257919657975,
+      "min": 2.7959169819951057,
+      "max": 13.040582998655736
+    },
+    "sample_failures": [],
+    "total_wall_time_sec": 0.19339624990243465,
+    "throughput_req_per_sec": 517.0731079348665
+  },
+  "raw_results": [
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 23.448999971151352,
+      "server_latency_ms": 12.34758400823921,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 17.879375023767352,
+      "server_latency_ms": 11.907832929864526,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 21.158582996577024,
+      "server_latency_ms": 12.151416973210871,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 21.143625024706125,
+      "server_latency_ms": 12.206707964651287,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 22.067542071454227,
+      "server_latency_ms": 12.252875021658838,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 17.91995798703283,
+      "server_latency_ms": 11.93924993276596,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 18.293416942469776,
+      "server_latency_ms": 11.964790988713503,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 18.78625003155321,
+      "server_latency_ms": 12.196167022921145,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 18.795624957419932,
+      "server_latency_ms": 12.261291965842247,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 21.713333087973297,
+      "server_latency_ms": 12.321125017479062,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 7.375124958343804,
+      "server_latency_ms": 2.84212501719594,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 7.9091660445556045,
+      "server_latency_ms": 2.7959169819951057,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 16.85908401850611,
+      "server_latency_ms": 10.652625001966953,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 15.566542046144605,
+      "server_latency_ms": 10.621458059176803,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 17.824208014644682,
+      "server_latency_ms": 11.406749952584505,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 22.750208037905395,
+      "server_latency_ms": 11.635249946266413,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 20.006250008009374,
+      "server_latency_ms": 11.316832969896495,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 16.855417052283883,
+      "server_latency_ms": 11.539957951754332,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 19.172500004060566,
+      "server_latency_ms": 11.283167055808008,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 17.325708991847932,
+      "server_latency_ms": 12.103750021196902,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 15.864166896790266,
+      "server_latency_ms": 11.863750056363642,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 16.33079198654741,
+      "server_latency_ms": 11.64174999576062,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 14.185459003783762,
+      "server_latency_ms": 12.499582953751087,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 14.356750063598156,
+      "server_latency_ms": 12.733459006994963,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 14.10120795480907,
+      "server_latency_ms": 12.423958047293127,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.850041083060205,
+      "server_latency_ms": 12.29687500745058,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 14.097749954089522,
+      "server_latency_ms": 11.878040968440473,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 14.048750046640635,
+      "server_latency_ms": 10.882416972890496,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 14.011583989486098,
+      "server_latency_ms": 10.891709011048079,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.877207995392382,
+      "server_latency_ms": 10.929625015705824,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.822749955579638,
+      "server_latency_ms": 10.672624921426177,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.378625037148595,
+      "server_latency_ms": 10.717749944888055,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.50666698999703,
+      "server_latency_ms": 12.113165925256908,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.446792028844357,
+      "server_latency_ms": 12.108792085200548,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.615708099678159,
+      "server_latency_ms": 11.996582965366542,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.639500015415251,
+      "server_latency_ms": 11.814375058747828,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 14.2769580706954,
+      "server_latency_ms": 11.67220901697874,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 14.302125084213912,
+      "server_latency_ms": 11.534417048096657,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 14.261874952353537,
+      "server_latency_ms": 11.537541984580457,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 14.509042026475072,
+      "server_latency_ms": 11.614124989137053,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 14.439457911066711,
+      "server_latency_ms": 12.136042001657188,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 14.698375016450882,
+      "server_latency_ms": 12.19958404544741,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 14.596791006624699,
+      "server_latency_ms": 12.923082918860018,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 14.483459061011672,
+      "server_latency_ms": 13.040582998655736,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 14.238375006243587,
+      "server_latency_ms": 12.413125019520521,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 14.326541917398572,
+      "server_latency_ms": 12.038541957736015,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.855915982276201,
+      "server_latency_ms": 11.477209045551717,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.727957964874804,
+      "server_latency_ms": 10.754417045973241,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.659207965247333,
+      "server_latency_ms": 10.891999932937324,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.64458305761218,
+      "server_latency_ms": 10.813249973580241,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.316583004780114,
+      "server_latency_ms": 10.70304203312844,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.379291980527341,
+      "server_latency_ms": 11.00191695149988,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.565249973908067,
+      "server_latency_ms": 12.184917111881077,
+      "fallback_used": false,
+      "num_items": 9,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.574667042121291,
+      "server_latency_ms": 12.349957949481905,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.618334080092609,
+      "server_latency_ms": 11.977375019341707,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.527332921512425,
+      "server_latency_ms": 11.8484579725191,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.67195788770914,
+      "server_latency_ms": 11.016207979992032,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.723833952099085,
+      "server_latency_ms": 10.792167042382061,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.863582978956401,
+      "server_latency_ms": 10.885584051720798,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.787916977889836,
+      "server_latency_ms": 10.80175000242889,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.73691693879664,
+      "server_latency_ms": 10.719832964241505,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.684457982890308,
+      "server_latency_ms": 10.730375070124865,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.897291966713965,
+      "server_latency_ms": 12.561999959871173,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.741875067353249,
+      "server_latency_ms": 12.450541951693594,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.945624930784106,
+      "server_latency_ms": 12.211166089400649,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.892375049181283,
+      "server_latency_ms": 11.950500076636672,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.85616697371006,
+      "server_latency_ms": 11.377332964912057,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.78200005274266,
+      "server_latency_ms": 11.209249962121248,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.755207997746766,
+      "server_latency_ms": 11.307292035780847,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.980541960336268,
+      "server_latency_ms": 11.721375049091876,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 14.549458981491625,
+      "server_latency_ms": 11.66820793878287,
+      "fallback_used": false,
+      "num_items": 9,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.704583048820496,
+      "server_latency_ms": 11.789874988608062,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.663834077306092,
+      "server_latency_ms": 12.190417037345469,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.69370799511671,
+      "server_latency_ms": 12.291625025682151,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.641291996464133,
+      "server_latency_ms": 12.158291996456683,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.662291108630598,
+      "server_latency_ms": 11.786416987888515,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.513125013560057,
+      "server_latency_ms": 11.633791960775852,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.505541952326894,
+      "server_latency_ms": 10.63495792914182,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.602167018689215,
+      "server_latency_ms": 10.723792016506195,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.228374999016523,
+      "server_latency_ms": 10.951375006698072,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.1992909591645,
+      "server_latency_ms": 10.90449991170317,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.379249954596162,
+      "server_latency_ms": 11.324333027005196,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.77149997279048,
+      "server_latency_ms": 12.477917014621198,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.934334041550756,
+      "server_latency_ms": 12.578541995026171,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.801708933897316,
+      "server_latency_ms": 12.165167019702494,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.844709028489888,
+      "server_latency_ms": 11.936208000406623,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.791625038720667,
+      "server_latency_ms": 11.434625019319355,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.827749993652105,
+      "server_latency_ms": 10.822625015862286,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.801083085127175,
+      "server_latency_ms": 10.856708977371454,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.645166996866465,
+      "server_latency_ms": 10.754500050097704,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.793041929602623,
+      "server_latency_ms": 10.590041987597942,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 13.43333290424198,
+      "server_latency_ms": 10.630959062837064,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 12.171374983154237,
+      "server_latency_ms": 10.658125043846667,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 12.012375053018332,
+      "server_latency_ms": 10.641250060871243,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 11.308707995340228,
+      "server_latency_ms": 9.705708012916148,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 11.083499994128942,
+      "server_latency_ms": 9.265208966098726,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 9.636417031288147,
+      "server_latency_ms": 7.036374998278916,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 9.632042027078569,
+      "server_latency_ms": 6.747916922904551,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 9.300333098508418,
+      "server_latency_ms": 6.59845897462219,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "latency_ms": 9.2190409777686,
+      "server_latency_ms": 6.469749961979687,
+      "fallback_used": false,
+      "num_items": 10,
+      "trace_len": 4,
+      "error": null
+    }
+  ]
+}

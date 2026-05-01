@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.env
+.venv/
+venv/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Hugging Face / cache
+.hf_cache/
+.cache/
+
+# Raw / processed datasets
+datasets/raw/
+datasets/processed/
+
+# Large model checkpoints
+models/*.pt
+models/*.bin
+models/*.safetensors
+models/*.ckpt
+
+# Large generated files
+*.npy
+*.pkl
+*.parquet
+*.faiss
+
+# Logs
+*.log
+logs/
+
+# Reference project
+reference/
+
+# Old or unused package directory
+genrec_agent/
