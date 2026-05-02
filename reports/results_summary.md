@@ -3,6 +3,41 @@
 This report summarizes the main offline recommendation results, API benchmark results, fallback validation, and DeepSeek LLM-enhanced agent results for GenRec-Agent.
 
 ---
+## v0.3.0 LLM-guided Semantic Query Recall
+
+### Motivation
+
+Previous versions used LLMs mainly for candidate reranking and recommendation explanation. In v0.3.0, we add LLM-guided candidate recall: the LLM generates a semantic query from user behavior, and the system maps it to real catalog products through local vector retrieval.
+
+### Design
+
+The LLM does not directly generate product IDs. It only generates a semantic query and intent summary. Product candidates are retrieved from the local item embedding index and then processed by the existing filtering, reranking, and marketing pipeline.
+
+### Validated Pipeline
+
+```text
+UserProfileAgent
+→ LLMQueryRecallAgent
+→ FilterAgent
+→ LLMRerankAgent
+→ MarketingAgent
+```
+
+# Key Trace Signals
+```table
+Field	Expected Meaning
+mode=llm_query_recall	Use LLM-guided semantic query recall
+llm_decides_products=false	LLM does not generate product IDs
+llm_candidate_scope=vector_retrieval_from_local_catalog	Candidates come from local catalog retrieval
+retrieval_backend=numpy_cosine	Uses local embedding cosine retrieval
+invalid_ids=[]	LLM reranker did not output out-of-candidate IDs
+llm_reason_top_n=3	Only Top-3 items use LLM-generated reasons
+template_reason_items=7	Remaining items use template reasons
+```
+
+# Interpretation
+
+v0.3.0 upgrades the system from LLM-enhanced recommendation post-processing to LLM-guided candidate recall. This provides a safer alternative to direct LLM product generation: the LLM contributes semantic intent, while final products are still grounded in the local catalog and downstream business filters.
 
 ## 1. Project Versions
 

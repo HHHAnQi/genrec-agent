@@ -1,4 +1,69 @@
-# GenRec-Agent: DeepSeek LLM-Enhanced Multi-Agent Generative Recommendation System
+## v0.3.0: LLM-guided Semantic Query Recall
+
+# GenRec-Agent now supports `mode=llm_query_recall`, enabling LLM-guided candidate recall before downstream filtering, reranking, and recommendation explanation.
+
+Unlike direct LLM recommendation generation, the LLM does **not** generate product IDs. Instead, DeepSeek generates a semantic search query from the user's recent behavior. The system then maps this query to real catalog products using local item embeddings and cosine similarity retrieval.
+
+### Pipeline
+
+```text
+UserProfileAgent
+→ LLMQueryRecallAgent
+→ FilterAgent
+→ optional LLMRerankAgent
+→ MarketingAgent
+```
+
+# Key Design
+LLMQueryRecallAgent uses DeepSeek to generate a semantic query from user behavior.
+VectorRetriever maps the semantic query to real products from the local catalog.
+The LLM does not directly generate or decide product IDs.
+Retrieved products still pass through FilterAgent.
+Optional LLMRerankAgent performs candidate-constrained reranking.
+MarketingAgent supports top-N LLM-generated recommendation reasons via llm_reason_top_n.
+
+# Safety and Robustness
+Product candidates are retrieved from the local product catalog, not hallucinated by the LLM.
+invalid_ids are checked during LLM reranking.
+Query specificity guardrails reduce overly broad LLM queries.
+Ambiguous retrieval results, such as non-skincare “mask” products, can be filtered before downstream ranking.
+LLM failures fall back to the non-LLM GenRec path.
+
+# Example Request
+```json
+{
+  "user_id": "AE23ZBUF2YVBQPH2NN6F5XSA3QYQ",
+  "top_k": 10,
+  "mode": "llm_query_recall",
+  "rerank_mode": "llm",
+  "marketing_mode": "llm",
+  "llm_reason_top_n": 3
+}
+```
+
+# Validated Behavior
+
+The full v0.3.0 pipeline has been validated as:
+```text
+UserProfileAgent
+→ LLMQueryRecallAgent
+→ FilterAgent
+→ LLMRerankAgent
+→ MarketingAgent
+```
+
+# The trace records:
+```text
+generated semantic_query
+llm_decides_products = false
+retrieval_backend = numpy_cosine
+invalid_ids = []
+llm_batch_input_items = 3
+template_reason_items = 7
+```
+
+This makes the system an LLM-guided recommendation service rather than an uncontrolled LLM product generator.
+
 
 GenRec-Agent 是一个面向电商推荐场景的多 Agent 生成式推荐系统。项目基于 **FastAPI + LangGraph** 构建状态图工作流，集成用户画像、生成式推荐、业务过滤、LLM 候选重排、推荐理由生成与服务化接口，并在 Amazon Reviews 2023 Beauty 子集上完成推荐效果评估、接口压测、fallback 验证与真实 DeepSeek API 接入。
 
