@@ -1,0 +1,54 @@
+{
+  "evaluation_type": "sampled_candidate_ranking",
+  "split": "test",
+  "train_path": "datasets/processed/train.jsonl",
+  "valid_path": "datasets/processed/valid.jsonl",
+  "test_path": "datasets/processed/test.jsonl",
+  "semantic_ids_path": "datasets/processed/semantic_ids.json",
+  "sid_to_items_path": "datasets/processed/sid_to_items.json",
+  "model_path": "models/genrec_gru.pt",
+  "num_negatives": 99,
+  "candidate_set_size": 100,
+  "ks": [
+    5,
+    10,
+    20
+  ],
+  "exclude_history": true,
+  "seed": 42,
+  "num_all_items": 1442,
+  "model_loaded": true,
+  "model_load_error": null,
+  "num_rows": 845,
+  "num_evaluated": 845,
+  "num_skipped": 0,
+  "metrics": {
+    "popularity": {
+      "MRR": 0.0432972818568156,
+      "Recall@5": 0.047337278106508875,
+      "NDCG@5": 0.025018959329530337,
+      "Recall@10": 0.09112426035502959,
+      "NDCG@10": 0.039023512467593384,
+      "Recall@20": 0.1668639053254438,
+      "NDCG@20": 0.057725375097947985
+    },
+    "semantic_neighbor": {
+      "MRR": 0.23719038240118595,
+      "Recall@5": 0.3408284023668639,
+      "NDCG@5": 0.2457165609405354,
+      "Recall@10": 0.39289940828402364,
+      "NDCG@10": 0.2628443317000458,
+      "Recall@20": 0.47455621301775147,
+      "NDCG@20": 0.2834147137436922
+    },
+    "genrec_gru": {
+      "MRR": 0.17683731106758968,
+      "Recall@5": 0.2556213017751479,
+      "NDCG@5": 0.17650674181277629,
+      "Recall@10": 0.31005917159763313,
+      "NDCG@10": 0.19382223104708893,
+      "Recall@20": 0.41183431952662725,
+      "NDCG@20": 0.21940375624458522
+    }
+  }
+}
