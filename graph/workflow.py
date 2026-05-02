@@ -8,6 +8,7 @@ from schemas.models import RecommendationState
 
 from agents.llm_rerank import LLMRerankAgent
 
+from agents.llm_query_recall import LLMQueryRecallAgent
 
 class GenRecWorkflow:
     """
@@ -24,26 +25,38 @@ class GenRecWorkflow:
     def __init__(self):
         self.user_profile_agent = UserProfileAgent()
         self.generative_rec_agent = GenerativeRecAgent()
+        self.llm_query_recall_agent = LLMQueryRecallAgent(
+            fallback_agent=self.generative_rec_agent,
+        )
         self.filter_agent = FilterAgent(min_stock=1, remove_history=True)
+        self.rerank_agent = LLMRerankAgent()
         self.marketing_agent = MarketingAgent()
 
         self.graph = self._build_graph()
-
-        self.rerank_agent = LLMRerankAgent()
 
     def _build_graph(self):
         builder = StateGraph(RecommendationState)
 
         builder.add_node("user_profile", self.user_profile_node)
         builder.add_node("generative_rec", self.generative_rec_node)
+        builder.add_node("llm_query_recall", self.llm_query_recall_node)
         builder.add_node("filter", self.filter_node)
         builder.add_node("rerank", self.rerank_node)
         builder.add_node("marketing", self.marketing_node)
 
         builder.set_entry_point("user_profile")
 
-        builder.add_edge("user_profile", "generative_rec")
+        builder.add_conditional_edges(
+            "user_profile",
+            self.route_after_user_profile,
+            {
+                "llm_query_recall": "llm_query_recall",
+                "generative_rec": "generative_rec",
+            },
+        )
+
         builder.add_edge("generative_rec", "filter")
+        builder.add_edge("llm_query_recall", "filter")
         builder.add_conditional_edges(
             "filter",
             self.route_after_filter,
@@ -106,6 +119,45 @@ class GenRecWorkflow:
         state.trace.append(
             {
                 "agent": "GenerativeRecAgent",
+                "success": response.success,
+                "latency_ms": response.latency_ms,
+                "fallback_used": response.fallback_used,
+                "metadata": response.metadata,
+                "error": response.error,
+            }
+        )
+
+        if not response.success:
+            state.fallback_used = True
+            return state
+
+        state.candidates = response.data
+        state.fallback_used = state.fallback_used or response.fallback_used
+        return state
+
+    async def llm_query_recall_node(
+        self,
+        state: RecommendationState,
+    ) -> RecommendationState:
+        if state.user_context is None:
+            state.trace.append(
+                {
+                    "agent": "LLMQueryRecallAgent",
+                    "success": False,
+                    "latency_ms": 0.0,
+                    "fallback_used": True,
+                    "metadata": {},
+                    "error": "Skipped because user_context is missing.",
+                }
+            )
+            state.fallback_used = True
+            return state
+
+        response = await self.llm_query_recall_agent.run(state)
+
+        state.trace.append(
+            {
+                "agent": "LLMQueryRecallAgent",
                 "success": response.success,
                 "latency_ms": response.latency_ms,
                 "fallback_used": response.fallback_used,
@@ -255,3 +307,8 @@ class GenRecWorkflow:
         if getattr(state, "rerank_mode", "none") == "llm":
             return "rerank"
         return "marketing"
+
+    def route_after_user_profile(self, state: RecommendationState) -> str:
+        if getattr(state, "mode", "genrec_gru") == "llm_query_recall":
+            return "llm_query_recall"
+        return "generative_rec"
