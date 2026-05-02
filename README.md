@@ -1,8 +1,3 @@
-你当前 README 主要还是 v0.1.0 版本，里面还写着 “MarketingAgent currently uses templates instead of LLM-generated copy”，这和现在的 v0.2.0 已经不一致了。下面给你一版**完整可替换的 README.md**，已经加入 DeepSeek API、LLMRerankAgent、Batch LLMMarketingAgent、mock/DeepSeek 运行方式、fallback、trace、版本演进和简历友好表述。
-
-你可以直接整体替换 `README.md`。
-
-````markdown
 # GenRec-Agent: DeepSeek LLM-Enhanced Multi-Agent Generative Recommendation System
 
 GenRec-Agent 是一个面向电商推荐场景的多 Agent 生成式推荐系统。项目基于 **FastAPI + LangGraph** 构建状态图工作流，集成用户画像、生成式推荐、业务过滤、LLM 候选重排、推荐理由生成与服务化接口，并在 Amazon Reviews 2023 Beauty 子集上完成推荐效果评估、接口压测、fallback 验证与真实 DeepSeek API 接入。
