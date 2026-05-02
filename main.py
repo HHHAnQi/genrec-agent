@@ -22,7 +22,7 @@ class RecommendRequest(BaseModel):
     top_k: int = Field(10, ge=1, le=50)
     mode: str = Field(
         "genrec_gru",
-        description="Recommendation mode: genrec_gru, semantic_neighbor, or popularity.",
+        description="Recommendation mode: genrec_gru, semantic_neighbor, popularity, or llm_query_recall.",
     )
     marketing_mode: str = Field(
         "template",
