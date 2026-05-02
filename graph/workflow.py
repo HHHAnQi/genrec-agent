@@ -44,7 +44,15 @@ class GenRecWorkflow:
 
         builder.add_edge("user_profile", "generative_rec")
         builder.add_edge("generative_rec", "filter")
-        builder.add_edge("filter", "rerank")
+        builder.add_conditional_edges(
+            "filter",
+            self.route_after_filter,
+            {
+                "rerank": "rerank",
+                "marketing": "marketing",
+            },
+        )
+
         builder.add_edge("rerank", "marketing")
         builder.add_edge("marketing", END)
 
@@ -242,3 +250,8 @@ class GenRecWorkflow:
             return RecommendationState(**result)
 
         raise TypeError(f"Unexpected workflow result type: {type(result)}")
+
+    def route_after_filter(self, state: RecommendationState) -> str:
+        if getattr(state, "rerank_mode", "none") == "llm":
+            return "rerank"
+        return "marketing"

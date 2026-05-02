@@ -24,6 +24,7 @@ async def main():
         mode="genrec_gru",
         rerank_mode="llm",
         marketing_mode="llm",
+        llm_reason_top_n=3,
     )
 
     workflow = GenRecWorkflow()
