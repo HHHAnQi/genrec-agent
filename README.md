@@ -14,7 +14,7 @@ UserProfileAgent
 → MarketingAgent
 ```
 
-# Key Design
+### Key Design
 LLMQueryRecallAgent uses DeepSeek to generate a semantic query from user behavior.
 VectorRetriever maps the semantic query to real products from the local catalog.
 The LLM does not directly generate or decide product IDs.
@@ -22,14 +22,14 @@ Retrieved products still pass through FilterAgent.
 Optional LLMRerankAgent performs candidate-constrained reranking.
 MarketingAgent supports top-N LLM-generated recommendation reasons via llm_reason_top_n.
 
-# Safety and Robustness
+### Safety and Robustness
 Product candidates are retrieved from the local product catalog, not hallucinated by the LLM.
 invalid_ids are checked during LLM reranking.
 Query specificity guardrails reduce overly broad LLM queries.
 Ambiguous retrieval results, such as non-skincare “mask” products, can be filtered before downstream ranking.
 LLM failures fall back to the non-LLM GenRec path.
 
-# Example Request
+### Example Request
 ```json
 {
   "user_id": "AE23ZBUF2YVBQPH2NN6F5XSA3QYQ",
@@ -41,7 +41,7 @@ LLM failures fall back to the non-LLM GenRec path.
 }
 ```
 
-# Validated Behavior
+### Validated Behavior
 
 The full v0.3.0 pipeline has been validated as:
 ```text
@@ -52,7 +52,7 @@ UserProfileAgent
 → MarketingAgent
 ```
 
-# The trace records:
+### The trace records:
 ```text
 generated semantic_query
 llm_decides_products = false
@@ -833,5 +833,3 @@ Mock mode is not a real LLM. It is kept for local reproducibility, CI-style test
 ## 24. Resume Summary
 
 GenRec-Agent is a FastAPI + LangGraph based multi-agent generative recommendation system. It combines Semantic-ID based GRU GenRec with DeepSeek-powered LLM agents for candidate-constrained reranking and batch recommendation reason generation. The system supports API serving, trace logging, latency monitoring, fallback validation, and mock / DeepSeek provider switching.
-
-````
