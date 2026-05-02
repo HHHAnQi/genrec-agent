@@ -24,6 +24,14 @@ class RecommendRequest(BaseModel):
         "genrec_gru",
         description="Recommendation mode: genrec_gru, semantic_neighbor, or popularity.",
     )
+    marketing_mode: str = Field(
+        "template",
+        description="Marketing reason mode: template or llm.",
+    )
+    rerank_mode: str = Field(
+        "none",
+        description="Candidate rerank mode: none or llm.",
+    )
 
 
 @app.get("/health")
@@ -44,6 +52,8 @@ async def recommend(request: RecommendRequest):
         user_id=request.user_id,
         top_k=request.top_k,
         mode=request.mode,
+        marketing_mode=request.marketing_mode,
+        rerank_mode=request.rerank_mode,
     )
 
     result = await workflow.ainvoke(state)
@@ -65,6 +75,8 @@ async def recommend(request: RecommendRequest):
         "user_id": result.user_id,
         "top_k": result.top_k,
         "mode": result.mode,
+        "marketing_mode": result.marketing_mode,
+        "rerank_mode": result.rerank_mode,
         "fallback_used": result.fallback_used,
         "latency_ms": latency_ms,
         "items": [item.model_dump() for item in result.final_items],

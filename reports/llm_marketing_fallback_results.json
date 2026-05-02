@@ -1,0 +1,129 @@
+{
+  "case": "llm_marketing_fallback",
+  "passed": true,
+  "num_final_items": 5,
+  "fallback_used": true,
+  "marketing_metadata": {
+    "input_items": 5,
+    "output_items": 5,
+    "reason_type": "llm",
+    "llm_success_count": 0,
+    "llm_fallback_count": 5,
+    "llm_errors_sample": [
+      "ConnectError('[Errno 61] Connection refused')",
+      "ConnectError('[Errno 61] Connection refused')",
+      "ConnectError('[Errno 61] Connection refused')"
+    ],
+    "llm_provider": "openai",
+    "llm_model": "fake-model",
+    "agent_name": "MarketingAgent",
+    "attempt": 1
+  },
+  "sample_items": [
+    {
+      "product_id": "B082VKPJV5",
+      "title": "Workman's Friend Ultimate Hand Care Bundle",
+      "reason": "Recommended based on your recent interest in All Beauty; Workman's Friend Ultimate Hand Care Bundle may fit your personal-care routine."
+    },
+    {
+      "product_id": "B07YNDWRCB",
+      "title": "Hylunia Hydrate Body Wash - Energizing Blend With Mango 8.5 oz",
+      "reason": "Recommended based on your recent interest in All Beauty; Hylunia Hydrate Body Wash - Energizing Blend With Mango 8.5 oz may fit your personal-care routine."
+    },
+    {
+      "product_id": "B08VKQY815",
+      "title": "Sparkling Oxygen Mask, Skin Energizing Treatment with Bubbling Action",
+      "reason": "Recommended based on your recent interest in All Beauty; Sparkling Oxygen Mask, Skin Energizing Treatment with Bubbling Action may fit your personal-care routine."
+    }
+  ],
+  "trace": [
+    {
+      "agent": "UserProfileAgent",
+      "success": true,
+      "latency_ms": 0.13566704001277685,
+      "fallback_used": false,
+      "metadata": {
+        "history_len": 10,
+        "top_categories": [
+          [
+            "All Beauty",
+            10
+          ]
+        ],
+        "top_brands": [
+          [
+            "Golden Gift Box",
+            1
+          ],
+          [
+            "MEETWIN",
+            1
+          ],
+          [
+            "Panama Jack",
+            1
+          ]
+        ],
+        "agent_name": "UserProfileAgent",
+        "attempt": 1
+      },
+      "error": null
+    },
+    {
+      "agent": "GenerativeRecAgent",
+      "success": true,
+      "latency_ms": 12.566667050123215,
+      "fallback_used": false,
+      "metadata": {
+        "requested_mode": "genrec_gru",
+        "used_mode": "genrec_gru",
+        "model_loaded": true,
+        "load_error": null,
+        "num_returned": 5,
+        "agent_name": "GenerativeRecAgent",
+        "attempt": 1
+      },
+      "error": null
+    },
+    {
+      "agent": "FilterAgent",
+      "success": true,
+      "latency_ms": 0.062333070673048496,
+      "fallback_used": false,
+      "metadata": {
+        "input_candidates": 5,
+        "output_candidates": 5,
+        "removed_by_stock": 0,
+        "removed_by_history": 0,
+        "removed_duplicate": 0,
+        "min_stock": 1,
+        "agent_name": "FilterAgent",
+        "attempt": 1
+      },
+      "error": null
+    },
+    {
+      "agent": "MarketingAgent",
+      "success": true,
+      "latency_ms": 45.901875011622906,
+      "fallback_used": true,
+      "metadata": {
+        "input_items": 5,
+        "output_items": 5,
+        "reason_type": "llm",
+        "llm_success_count": 0,
+        "llm_fallback_count": 5,
+        "llm_errors_sample": [
+          "ConnectError('[Errno 61] Connection refused')",
+          "ConnectError('[Errno 61] Connection refused')",
+          "ConnectError('[Errno 61] Connection refused')"
+        ],
+        "llm_provider": "openai",
+        "llm_model": "fake-model",
+        "agent_name": "MarketingAgent",
+        "attempt": 1
+      },
+      "error": null
+    }
+  ]
+}
