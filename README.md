@@ -4,6 +4,19 @@
 
 Unlike direct LLM recommendation generation, the LLM does **not** generate product IDs. Instead, DeepSeek generates a semantic search query from the user's recent behavior. The system then maps this query to real catalog products using local item embeddings and cosine similarity retrieval.
 
+## System Architecture
+
+The following diagram shows the overall GenRec-Agent pipeline, including offline data processing, online FastAPI serving, LangGraph multi-agent workflow, LLM-guided semantic query recall, candidate-constrained LLM reranking, marketing reason generation, fallback strategy, trace logging, and workflow benchmark.
+
+![GenRec-Agent System Architecture](assets/genrec_agent_architecture.png)
+
+The architecture consists of four layers:
+
+1. **Offline Data & Modeling**: preprocesses Amazon Reviews 2023 Beauty data, builds item text embeddings, constructs Semantic IDs, trains GRU GenRec / Hybrid GenRec models, and runs offline evaluation.
+2. **Online Service Entry**: exposes the `/recommend` API through FastAPI with configurable `mode`, `rerank_mode`, `marketing_mode`, and `llm_reason_top_n`.
+3. **LangGraph Multi-Agent Workflow**: orchestrates `UserProfileAgent`, `GenerativeRecAgent`, `LLMQueryRecallAgent`, `FilterAgent`, `LLMRerankAgent`, and `MarketingAgent`.
+4. **Robustness & Observability**: records trace metadata, supports fallback strategies, and benchmarks workflow latency across different system modes.
+
 ### Pipeline
 
 ```text
