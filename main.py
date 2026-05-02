@@ -32,6 +32,12 @@ class RecommendRequest(BaseModel):
         "none",
         description="Candidate rerank mode: none or llm.",
     )
+    llm_reason_top_n: int = Field(
+        10,
+        ge=0,
+        le=50,
+        description="Number of top items using LLM-generated reasons. Remaining items use template reasons.",
+    )
 
 
 @app.get("/health")
@@ -54,6 +60,7 @@ async def recommend(request: RecommendRequest):
         mode=request.mode,
         marketing_mode=request.marketing_mode,
         rerank_mode=request.rerank_mode,
+        llm_reason_top_n=request.llm_reason_top_n,
     )
 
     result = await workflow.ainvoke(state)
@@ -77,6 +84,7 @@ async def recommend(request: RecommendRequest):
         "mode": result.mode,
         "marketing_mode": result.marketing_mode,
         "rerank_mode": result.rerank_mode,
+        "llm_reason_top_n": result.llm_reason_top_n,
         "fallback_used": result.fallback_used,
         "latency_ms": latency_ms,
         "items": [item.model_dump() for item in result.final_items],

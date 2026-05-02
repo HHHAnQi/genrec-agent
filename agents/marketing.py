@@ -81,6 +81,47 @@ class MarketingAgent(BaseAgent):
     ) -> AgentResponse:
         items = state.filtered_candidates
 
+        llm_reason_top_n = int(getattr(state, "llm_reason_top_n", len(items)))
+        llm_reason_top_n = max(0, min(llm_reason_top_n, len(items)))
+
+        llm_items = items[:llm_reason_top_n]
+        template_items = items[llm_reason_top_n:]
+
+        # If llm_reason_top_n = 0, disable LLM reason generation.
+        if not llm_items:
+            final_items = []
+            for item in items:
+                reason = self._build_template_reason(
+                    item=item,
+                    top_brand=top_brand,
+                    top_category=top_category,
+                )
+                final_items.append(item.model_copy(update={"reason": reason}))
+
+            return AgentResponse(
+                success=True,
+                data=final_items,
+                fallback_used=False,
+                metadata={
+                    "input_items": len(items),
+                    "output_items": len(final_items),
+                    "reason_type": "template",
+                    "llm_reason_mode": "top_n_disabled",
+                    "llm_reason_top_n": llm_reason_top_n,
+                    "llm_batch_input_items": 0,
+                    "template_reason_items": len(template_items),
+                    "llm_success_count": 0,
+                    "llm_fallback_count": 0,
+                    "llm_errors_sample": [],
+                    "llm_invalid_reason_count": 0,
+                    "llm_quality_fallback_count": 0,
+                    "llm_provider": self.llm_client.provider,
+                    "llm_model": self.llm_client.model,
+                    "llm_latency_ms": 0.0,
+                    "llm_batch_call_count": 0,
+                },
+            )
+
         system_prompt = (
             "You are a recommendation explanation agent for an e-commerce system. "
             "Generate concise recommendation reasons for multiple candidate products. "
@@ -110,7 +151,7 @@ class MarketingAgent(BaseAgent):
                     "price": item.price,
                     "stock": item.stock,
                 }
-                for item in items
+                for item in llm_items
             ],
             "required_output_schema": {
                 "reasons": [
@@ -140,28 +181,56 @@ class MarketingAgent(BaseAgent):
 
         reason_map, invalid_reason_items = self._parse_batch_reasons(
             result_data=result.data,
-            valid_product_ids={str(item.product_id) for item in items},
+            valid_product_ids={str(item.product_id) for item in llm_items},
         )
 
         final_items: list[CandidateItem] = []
         fallback_count = 0
+        quality_errors: list[str] = []
+        template_reason_count = 0
+
+        llm_item_ids = {str(item.product_id) for item in llm_items}
 
         for item in items:
             pid = str(item.product_id)
-            reason = reason_map.get(pid)
 
-            if not reason:
-                fallback_count += 1
+            # Items outside top_n use template reasons directly.
+            if pid not in llm_item_ids:
+                template_reason_count += 1
                 reason = self._build_template_reason(
                     item=item,
                     top_brand=top_brand,
                     top_category=top_category,
                 )
+                final_items.append(item.model_copy(update={"reason": reason}))
+                continue
+
+            reason = reason_map.get(pid)
+
+            if not reason:
+                fallback_count += 1
+                quality_errors.append(f"{pid}:missing_reason")
+                reason = self._build_template_reason(
+                    item=item,
+                    top_brand=top_brand,
+                    top_category=top_category,
+                )
+            else:
+                valid, error = self._is_reason_valid(reason, item)
+                if not valid:
+                    fallback_count += 1
+                    quality_errors.append(f"{pid}:{error}")
+                    reason = self._build_template_reason(
+                        item=item,
+                        top_brand=top_brand,
+                        top_category=top_category,
+                    )
 
             final_items.append(item.model_copy(update={"reason": reason}))
 
-        success_count = len(items) - fallback_count
+        success_count = len(llm_items) - fallback_count
         fallback_used = fallback_count > 0
+        all_errors = invalid_reason_items + quality_errors
 
         return AgentResponse(
             success=True,
@@ -171,10 +240,15 @@ class MarketingAgent(BaseAgent):
                 "input_items": len(items),
                 "output_items": len(final_items),
                 "reason_type": "llm",
-                "llm_reason_mode": "batch",
+                "llm_reason_mode": "batch_top_n",
+                "llm_reason_top_n": llm_reason_top_n,
+                "llm_batch_input_items": len(llm_items),
+                "template_reason_items": template_reason_count,
                 "llm_success_count": success_count,
                 "llm_fallback_count": fallback_count,
-                "llm_errors_sample": invalid_reason_items[:3],
+                "llm_errors_sample": all_errors[:5],
+                "llm_invalid_reason_count": len(invalid_reason_items),
+                "llm_quality_fallback_count": len(quality_errors),
                 "llm_provider": result.provider,
                 "llm_model": result.model,
                 "llm_latency_ms": result.latency_ms,
@@ -309,3 +383,106 @@ class MarketingAgent(BaseAgent):
         return (
             "Recommended by the generative recommendation model based on your recent behavior sequence."
         )
+
+    
+    def _is_reason_valid(
+        self,
+        reason: str,
+        item: CandidateItem,
+    ) -> tuple[bool, str | None]:
+        if not isinstance(reason, str) or not reason.strip():
+            return False, "empty_reason"
+
+        reason = reason.strip()
+        reason_lower = reason.lower()
+        words = reason.split()
+
+        if len(words) < 6:
+            return False, "reason_too_short"
+
+        if len(reason) > 260:
+            return False, "reason_too_long"
+
+        blocked_terms = [
+            "cheapest",
+            "best price",
+            "guaranteed",
+            "guarantee",
+            "free shipping",
+            "discount",
+            "cure",
+            "medical",
+            "treat disease",
+            "doctor recommended",
+            "clinically proven",
+        ]
+
+        for term in blocked_terms:
+            if term in reason_lower:
+                return False, f"blocked_term:{term}"
+
+        # If price is missing or simulated, avoid unsupported price/discount claims.
+        price_invalid = item.price is None or item.price < 0
+        if price_invalid:
+            unsupported_price_terms = [
+                "$",
+                "price",
+                "cheap",
+                "cheaper",
+                "affordable",
+                "discount",
+                "sale",
+                "deal",
+                "low cost",
+            ]
+            for term in unsupported_price_terms:
+                if term in reason_lower:
+                    return False, f"unsupported_price_claim:{term}"
+
+        if not self._mentions_item_signal(reason_lower, item):
+            return False, "not_item_specific"
+
+        return True, None
+
+    def _mentions_item_signal(
+        self,
+        reason_lower: str,
+        item: CandidateItem,
+    ) -> bool:
+        signals = []
+
+        if item.brand:
+            signals.append(str(item.brand).lower())
+
+        if item.category:
+            signals.append(str(item.category).lower())
+
+        if item.title:
+            title_tokens = [
+                token.strip(" ,.-_/()[]{}")
+                for token in str(item.title).lower().split()
+            ]
+            title_tokens = [
+                token
+                for token in title_tokens
+                if len(token) >= 4
+                and token not in {
+                    "with",
+                    "from",
+                    "this",
+                    "that",
+                    "pack",
+                    "count",
+                    "new",
+                    "the",
+                    "and",
+                    "for",
+                }
+            ]
+            signals.extend(title_tokens[:8])
+
+        for signal in signals:
+            if signal and signal in reason_lower:
+                return True
+
+        return False
