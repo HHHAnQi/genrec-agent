@@ -22,6 +22,7 @@ async def main():
         user_id=user_id,
         top_k=10,
         mode="genrec_gru",
+        # marketing_mode="llm",
     )
 
     print("========== Input ==========")

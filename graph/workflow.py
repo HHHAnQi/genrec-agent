@@ -6,6 +6,8 @@ from agents.marketing import MarketingAgent
 from agents.user_profile import UserProfileAgent
 from schemas.models import RecommendationState
 
+from agents.llm_rerank import LLMRerankAgent
+
 
 class GenRecWorkflow:
     """
@@ -27,19 +29,23 @@ class GenRecWorkflow:
 
         self.graph = self._build_graph()
 
+        self.rerank_agent = LLMRerankAgent()
+
     def _build_graph(self):
         builder = StateGraph(RecommendationState)
 
         builder.add_node("user_profile", self.user_profile_node)
         builder.add_node("generative_rec", self.generative_rec_node)
         builder.add_node("filter", self.filter_node)
+        builder.add_node("rerank", self.rerank_node)
         builder.add_node("marketing", self.marketing_node)
 
         builder.set_entry_point("user_profile")
 
         builder.add_edge("user_profile", "generative_rec")
         builder.add_edge("generative_rec", "filter")
-        builder.add_edge("filter", "marketing")
+        builder.add_edge("filter", "rerank")
+        builder.add_edge("rerank", "marketing")
         builder.add_edge("marketing", END)
 
         return builder.compile()
@@ -66,6 +72,7 @@ class GenRecWorkflow:
             return state
 
         state.user_context = response.data
+        state.fallback_used = state.fallback_used or response.fallback_used
         return state
 
     async def generative_rec_node(
@@ -146,6 +153,46 @@ class GenRecWorkflow:
         state.final_items = response.data
         return state
 
+    async def rerank_node(
+        self,
+        state: RecommendationState,
+    ) -> RecommendationState:
+        if not state.filtered_candidates:
+            state.trace.append(
+                {
+                    "agent": "LLMRerankAgent",
+                    "success": False,
+                    "latency_ms": 0.0,
+                    "fallback_used": True,
+                    "metadata": {},
+                    "error": "Skipped because filtered_candidates are missing.",
+                }
+            )
+            state.fallback_used = True
+            return state
+
+        response = await self.rerank_agent.run(state)
+
+        state.trace.append(
+            {
+                "agent": "LLMRerankAgent",
+                "success": response.success,
+                "latency_ms": response.latency_ms,
+                "fallback_used": response.fallback_used,
+                "metadata": response.metadata,
+                "error": response.error,
+            }
+        )
+
+        if not response.success:
+            state.fallback_used = True
+            return state
+
+        state.filtered_candidates = response.data
+        state.final_items = response.data
+        state.fallback_used = state.fallback_used or response.fallback_used
+        return state
+
     async def marketing_node(
         self,
         state: RecommendationState,
@@ -182,6 +229,7 @@ class GenRecWorkflow:
             return state
 
         state.final_items = response.data
+        state.fallback_used = state.fallback_used or response.fallback_used
         return state
 
     async def ainvoke(self, state: RecommendationState) -> RecommendationState:

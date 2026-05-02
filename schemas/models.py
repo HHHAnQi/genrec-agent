@@ -43,6 +43,8 @@ class RecommendationState(BaseModel):
     user_id: str
     top_k: int = 10
     mode: str = "genrec_gru"
+    marketing_mode: str = "template"
+    rerank_mode: str = "none"
 
     user_context: Optional[UserContext] = None
     candidates: list[CandidateItem] = Field(default_factory=list)
