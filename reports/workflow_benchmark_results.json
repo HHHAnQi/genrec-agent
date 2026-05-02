@@ -1,0 +1,3794 @@
+{
+  "benchmark_type": "workflow_modes",
+  "test_path": "datasets/processed/test.jsonl",
+  "user_ids": [
+    "AE23ZBUF2YVBQPH2NN6F5XSA3QYQ",
+    "AE2IGWDKOWONDB3FQFX3STYGWCNQ",
+    "AE2O2C43KTYO4LXXGZWJZLE67GBQ",
+    "AE2VAC2YOW5N3DLYBQ6LKVIB6WPQ",
+    "AE2WYNQPBMS67OHFWV63NI4MSJEA"
+  ],
+  "top_k": 10,
+  "llm_reason_top_n": 3,
+  "modes": {
+    "genrec_gru_template": {
+      "mode": "genrec_gru",
+      "rerank_mode": "none",
+      "marketing_mode": "template"
+    },
+    "genrec_gru_llm_full": {
+      "mode": "genrec_gru",
+      "rerank_mode": "llm",
+      "marketing_mode": "llm"
+    },
+    "llm_query_recall_template": {
+      "mode": "llm_query_recall",
+      "rerank_mode": "none",
+      "marketing_mode": "template"
+    },
+    "llm_query_recall_llm_full": {
+      "mode": "llm_query_recall",
+      "rerank_mode": "llm",
+      "marketing_mode": "llm"
+    }
+  },
+  "records_by_mode": {
+    "genrec_gru_template": [
+      {
+        "mode_name": "genrec_gru_template",
+        "user_id": "AE23ZBUF2YVBQPH2NN6F5XSA3QYQ",
+        "success": true,
+        "error": null,
+        "latency_ms": 25.012125028297305,
+        "fallback_used": false,
+        "num_final_items": 10,
+        "trace": [
+          {
+            "agent": "UserProfileAgent",
+            "success": true,
+            "latency_ms": 0.5974998930469155,
+            "fallback_used": false,
+            "metadata": {
+              "history_len": 10,
+              "top_categories": [
+                [
+                  "All Beauty",
+                  10
+                ]
+              ],
+              "top_brands": [
+                [
+                  "Golden Gift Box",
+                  1
+                ],
+                [
+                  "MEETWIN",
+                  1
+                ],
+                [
+                  "Panama Jack",
+                  1
+                ]
+              ],
+              "agent_name": "UserProfileAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "GenerativeRecAgent",
+            "success": true,
+            "latency_ms": 16.652042046189308,
+            "fallback_used": false,
+            "metadata": {
+              "requested_mode": "genrec_gru",
+              "used_mode": "genrec_gru",
+              "model_loaded": true,
+              "load_error": null,
+              "num_returned": 10,
+              "agent_name": "GenerativeRecAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "FilterAgent",
+            "success": true,
+            "latency_ms": 0.2680419711396098,
+            "fallback_used": false,
+            "metadata": {
+              "input_candidates": 10,
+              "output_candidates": 10,
+              "removed_by_stock": 0,
+              "removed_by_history": 0,
+              "removed_duplicate": 0,
+              "min_stock": 1,
+              "agent_name": "FilterAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "MarketingAgent",
+            "success": true,
+            "latency_ms": 0.14883396215736866,
+            "fallback_used": false,
+            "metadata": {
+              "input_items": 10,
+              "output_items": 10,
+              "reason_type": "template",
+              "llm_reason_mode": "none",
+              "llm_success_count": 0,
+              "llm_fallback_count": 0,
+              "llm_errors_sample": [],
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "agent_name": "MarketingAgent",
+              "attempt": 1
+            },
+            "error": null
+          }
+        ],
+        "trace_stats": {
+          "agent_latency": {
+            "UserProfileAgent": [
+              0.5974998930469155
+            ],
+            "GenerativeRecAgent": [
+              16.652042046189308
+            ],
+            "FilterAgent": [
+              0.2680419711396098
+            ],
+            "MarketingAgent": [
+              0.14883396215736866
+            ]
+          },
+          "agent_success": {
+            "UserProfileAgent": [
+              true
+            ],
+            "GenerativeRecAgent": [
+              true
+            ],
+            "FilterAgent": [
+              true
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "agent_fallback": {
+            "UserProfileAgent": [
+              false
+            ],
+            "GenerativeRecAgent": [
+              false
+            ],
+            "FilterAgent": [
+              false
+            ],
+            "MarketingAgent": [
+              false
+            ]
+          },
+          "invalid_ids_count": 0,
+          "query_guardrail_count": 0,
+          "llm_reason_fallback_count": 0,
+          "llm_quality_fallback_count": 0,
+          "llm_batch_call_count": 0,
+          "llm_batch_input_items": 0,
+          "template_reason_items": 0,
+          "semantic_queries": []
+        }
+      },
+      {
+        "mode_name": "genrec_gru_template",
+        "user_id": "AE2IGWDKOWONDB3FQFX3STYGWCNQ",
+        "success": true,
+        "error": null,
+        "latency_ms": 3.765292000025511,
+        "fallback_used": false,
+        "num_final_items": 10,
+        "trace": [
+          {
+            "agent": "UserProfileAgent",
+            "success": true,
+            "latency_ms": 0.218666042201221,
+            "fallback_used": false,
+            "metadata": {
+              "history_len": 8,
+              "top_categories": [
+                [
+                  "All Beauty",
+                  8
+                ]
+              ],
+              "top_brands": [
+                [
+                  "Laloirelle",
+                  2
+                ],
+                [
+                  "HOMELEX",
+                  1
+                ],
+                [
+                  "Kidskin",
+                  1
+                ]
+              ],
+              "agent_name": "UserProfileAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "GenerativeRecAgent",
+            "success": true,
+            "latency_ms": 0.9402909781783819,
+            "fallback_used": false,
+            "metadata": {
+              "requested_mode": "genrec_gru",
+              "used_mode": "genrec_gru",
+              "model_loaded": true,
+              "load_error": null,
+              "num_returned": 10,
+              "agent_name": "GenerativeRecAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "FilterAgent",
+            "success": true,
+            "latency_ms": 0.08412497118115425,
+            "fallback_used": false,
+            "metadata": {
+              "input_candidates": 10,
+              "output_candidates": 10,
+              "removed_by_stock": 0,
+              "removed_by_history": 0,
+              "removed_duplicate": 0,
+              "min_stock": 1,
+              "agent_name": "FilterAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "MarketingAgent",
+            "success": true,
+            "latency_ms": 0.11754198931157589,
+            "fallback_used": false,
+            "metadata": {
+              "input_items": 10,
+              "output_items": 10,
+              "reason_type": "template",
+              "llm_reason_mode": "none",
+              "llm_success_count": 0,
+              "llm_fallback_count": 0,
+              "llm_errors_sample": [],
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "agent_name": "MarketingAgent",
+              "attempt": 1
+            },
+            "error": null
+          }
+        ],
+        "trace_stats": {
+          "agent_latency": {
+            "UserProfileAgent": [
+              0.218666042201221
+            ],
+            "GenerativeRecAgent": [
+              0.9402909781783819
+            ],
+            "FilterAgent": [
+              0.08412497118115425
+            ],
+            "MarketingAgent": [
+              0.11754198931157589
+            ]
+          },
+          "agent_success": {
+            "UserProfileAgent": [
+              true
+            ],
+            "GenerativeRecAgent": [
+              true
+            ],
+            "FilterAgent": [
+              true
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "agent_fallback": {
+            "UserProfileAgent": [
+              false
+            ],
+            "GenerativeRecAgent": [
+              false
+            ],
+            "FilterAgent": [
+              false
+            ],
+            "MarketingAgent": [
+              false
+            ]
+          },
+          "invalid_ids_count": 0,
+          "query_guardrail_count": 0,
+          "llm_reason_fallback_count": 0,
+          "llm_quality_fallback_count": 0,
+          "llm_batch_call_count": 0,
+          "llm_batch_input_items": 0,
+          "template_reason_items": 0,
+          "semantic_queries": []
+        }
+      },
+      {
+        "mode_name": "genrec_gru_template",
+        "user_id": "AE2O2C43KTYO4LXXGZWJZLE67GBQ",
+        "success": true,
+        "error": null,
+        "latency_ms": 3.3369589364156127,
+        "fallback_used": false,
+        "num_final_items": 10,
+        "trace": [
+          {
+            "agent": "UserProfileAgent",
+            "success": true,
+            "latency_ms": 0.13516703620553017,
+            "fallback_used": false,
+            "metadata": {
+              "history_len": 6,
+              "top_categories": [
+                [
+                  "All Beauty",
+                  6
+                ]
+              ],
+              "top_brands": [
+                [
+                  "BEOKREU",
+                  1
+                ],
+                [
+                  "GIDIBII",
+                  1
+                ],
+                [
+                  "Eye Love",
+                  1
+                ]
+              ],
+              "agent_name": "UserProfileAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "GenerativeRecAgent",
+            "success": true,
+            "latency_ms": 0.8875000057742,
+            "fallback_used": false,
+            "metadata": {
+              "requested_mode": "genrec_gru",
+              "used_mode": "genrec_gru",
+              "model_loaded": true,
+              "load_error": null,
+              "num_returned": 10,
+              "agent_name": "GenerativeRecAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "FilterAgent",
+            "success": true,
+            "latency_ms": 0.0783340074121952,
+            "fallback_used": false,
+            "metadata": {
+              "input_candidates": 10,
+              "output_candidates": 10,
+              "removed_by_stock": 0,
+              "removed_by_history": 0,
+              "removed_duplicate": 0,
+              "min_stock": 1,
+              "agent_name": "FilterAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "MarketingAgent",
+            "success": true,
+            "latency_ms": 0.12058299034833908,
+            "fallback_used": false,
+            "metadata": {
+              "input_items": 10,
+              "output_items": 10,
+              "reason_type": "template",
+              "llm_reason_mode": "none",
+              "llm_success_count": 0,
+              "llm_fallback_count": 0,
+              "llm_errors_sample": [],
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "agent_name": "MarketingAgent",
+              "attempt": 1
+            },
+            "error": null
+          }
+        ],
+        "trace_stats": {
+          "agent_latency": {
+            "UserProfileAgent": [
+              0.13516703620553017
+            ],
+            "GenerativeRecAgent": [
+              0.8875000057742
+            ],
+            "FilterAgent": [
+              0.0783340074121952
+            ],
+            "MarketingAgent": [
+              0.12058299034833908
+            ]
+          },
+          "agent_success": {
+            "UserProfileAgent": [
+              true
+            ],
+            "GenerativeRecAgent": [
+              true
+            ],
+            "FilterAgent": [
+              true
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "agent_fallback": {
+            "UserProfileAgent": [
+              false
+            ],
+            "GenerativeRecAgent": [
+              false
+            ],
+            "FilterAgent": [
+              false
+            ],
+            "MarketingAgent": [
+              false
+            ]
+          },
+          "invalid_ids_count": 0,
+          "query_guardrail_count": 0,
+          "llm_reason_fallback_count": 0,
+          "llm_quality_fallback_count": 0,
+          "llm_batch_call_count": 0,
+          "llm_batch_input_items": 0,
+          "template_reason_items": 0,
+          "semantic_queries": []
+        }
+      },
+      {
+        "mode_name": "genrec_gru_template",
+        "user_id": "AE2VAC2YOW5N3DLYBQ6LKVIB6WPQ",
+        "success": true,
+        "error": null,
+        "latency_ms": 2.9811670538038015,
+        "fallback_used": false,
+        "num_final_items": 10,
+        "trace": [
+          {
+            "agent": "UserProfileAgent",
+            "success": true,
+            "latency_ms": 0.11312495917081833,
+            "fallback_used": false,
+            "metadata": {
+              "history_len": 5,
+              "top_categories": [
+                [
+                  "All Beauty",
+                  5
+                ]
+              ],
+              "top_brands": [
+                [
+                  "Zegaine",
+                  3
+                ],
+                [
+                  "zenotti",
+                  2
+                ]
+              ],
+              "agent_name": "UserProfileAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "GenerativeRecAgent",
+            "success": true,
+            "latency_ms": 0.7109158905223012,
+            "fallback_used": false,
+            "metadata": {
+              "requested_mode": "genrec_gru",
+              "used_mode": "genrec_gru",
+              "model_loaded": true,
+              "load_error": null,
+              "num_returned": 10,
+              "agent_name": "GenerativeRecAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "FilterAgent",
+            "success": true,
+            "latency_ms": 0.07604202255606651,
+            "fallback_used": false,
+            "metadata": {
+              "input_candidates": 10,
+              "output_candidates": 10,
+              "removed_by_stock": 0,
+              "removed_by_history": 0,
+              "removed_duplicate": 0,
+              "min_stock": 1,
+              "agent_name": "FilterAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "MarketingAgent",
+            "success": true,
+            "latency_ms": 0.10520790237933397,
+            "fallback_used": false,
+            "metadata": {
+              "input_items": 10,
+              "output_items": 10,
+              "reason_type": "template",
+              "llm_reason_mode": "none",
+              "llm_success_count": 0,
+              "llm_fallback_count": 0,
+              "llm_errors_sample": [],
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "agent_name": "MarketingAgent",
+              "attempt": 1
+            },
+            "error": null
+          }
+        ],
+        "trace_stats": {
+          "agent_latency": {
+            "UserProfileAgent": [
+              0.11312495917081833
+            ],
+            "GenerativeRecAgent": [
+              0.7109158905223012
+            ],
+            "FilterAgent": [
+              0.07604202255606651
+            ],
+            "MarketingAgent": [
+              0.10520790237933397
+            ]
+          },
+          "agent_success": {
+            "UserProfileAgent": [
+              true
+            ],
+            "GenerativeRecAgent": [
+              true
+            ],
+            "FilterAgent": [
+              true
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "agent_fallback": {
+            "UserProfileAgent": [
+              false
+            ],
+            "GenerativeRecAgent": [
+              false
+            ],
+            "FilterAgent": [
+              false
+            ],
+            "MarketingAgent": [
+              false
+            ]
+          },
+          "invalid_ids_count": 0,
+          "query_guardrail_count": 0,
+          "llm_reason_fallback_count": 0,
+          "llm_quality_fallback_count": 0,
+          "llm_batch_call_count": 0,
+          "llm_batch_input_items": 0,
+          "template_reason_items": 0,
+          "semantic_queries": []
+        }
+      },
+      {
+        "mode_name": "genrec_gru_template",
+        "user_id": "AE2WYNQPBMS67OHFWV63NI4MSJEA",
+        "success": true,
+        "error": null,
+        "latency_ms": 3.1930829863995314,
+        "fallback_used": false,
+        "num_final_items": 10,
+        "trace": [
+          {
+            "agent": "UserProfileAgent",
+            "success": true,
+            "latency_ms": 0.1305839978158474,
+            "fallback_used": false,
+            "metadata": {
+              "history_len": 9,
+              "top_categories": [
+                [
+                  "All Beauty",
+                  9
+                ]
+              ],
+              "top_brands": [
+                [
+                  "Beauty Bakerie",
+                  1
+                ],
+                [
+                  "VANALIA",
+                  1
+                ],
+                [
+                  "Sotica",
+                  1
+                ]
+              ],
+              "agent_name": "UserProfileAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "GenerativeRecAgent",
+            "success": true,
+            "latency_ms": 0.6298749940469861,
+            "fallback_used": false,
+            "metadata": {
+              "requested_mode": "genrec_gru",
+              "used_mode": "genrec_gru",
+              "model_loaded": true,
+              "load_error": null,
+              "num_returned": 10,
+              "agent_name": "GenerativeRecAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "FilterAgent",
+            "success": true,
+            "latency_ms": 0.08629204239696264,
+            "fallback_used": false,
+            "metadata": {
+              "input_candidates": 10,
+              "output_candidates": 10,
+              "removed_by_stock": 0,
+              "removed_by_history": 0,
+              "removed_duplicate": 0,
+              "min_stock": 1,
+              "agent_name": "FilterAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "MarketingAgent",
+            "success": true,
+            "latency_ms": 0.12912508100271225,
+            "fallback_used": false,
+            "metadata": {
+              "input_items": 10,
+              "output_items": 10,
+              "reason_type": "template",
+              "llm_reason_mode": "none",
+              "llm_success_count": 0,
+              "llm_fallback_count": 0,
+              "llm_errors_sample": [],
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "agent_name": "MarketingAgent",
+              "attempt": 1
+            },
+            "error": null
+          }
+        ],
+        "trace_stats": {
+          "agent_latency": {
+            "UserProfileAgent": [
+              0.1305839978158474
+            ],
+            "GenerativeRecAgent": [
+              0.6298749940469861
+            ],
+            "FilterAgent": [
+              0.08629204239696264
+            ],
+            "MarketingAgent": [
+              0.12912508100271225
+            ]
+          },
+          "agent_success": {
+            "UserProfileAgent": [
+              true
+            ],
+            "GenerativeRecAgent": [
+              true
+            ],
+            "FilterAgent": [
+              true
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "agent_fallback": {
+            "UserProfileAgent": [
+              false
+            ],
+            "GenerativeRecAgent": [
+              false
+            ],
+            "FilterAgent": [
+              false
+            ],
+            "MarketingAgent": [
+              false
+            ]
+          },
+          "invalid_ids_count": 0,
+          "query_guardrail_count": 0,
+          "llm_reason_fallback_count": 0,
+          "llm_quality_fallback_count": 0,
+          "llm_batch_call_count": 0,
+          "llm_batch_input_items": 0,
+          "template_reason_items": 0,
+          "semantic_queries": []
+        }
+      }
+    ],
+    "genrec_gru_llm_full": [
+      {
+        "mode_name": "genrec_gru_llm_full",
+        "user_id": "AE23ZBUF2YVBQPH2NN6F5XSA3QYQ",
+        "success": true,
+        "error": null,
+        "latency_ms": 7719.1393750254065,
+        "fallback_used": true,
+        "num_final_items": 10,
+        "trace": [
+          {
+            "agent": "UserProfileAgent",
+            "success": true,
+            "latency_ms": 0.12633309233933687,
+            "fallback_used": false,
+            "metadata": {
+              "history_len": 10,
+              "top_categories": [
+                [
+                  "All Beauty",
+                  10
+                ]
+              ],
+              "top_brands": [
+                [
+                  "Golden Gift Box",
+                  1
+                ],
+                [
+                  "MEETWIN",
+                  1
+                ],
+                [
+                  "Panama Jack",
+                  1
+                ]
+              ],
+              "agent_name": "UserProfileAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "GenerativeRecAgent",
+            "success": true,
+            "latency_ms": 0.6170419510453939,
+            "fallback_used": false,
+            "metadata": {
+              "requested_mode": "genrec_gru",
+              "used_mode": "genrec_gru",
+              "model_loaded": true,
+              "load_error": null,
+              "num_returned": 10,
+              "agent_name": "GenerativeRecAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "FilterAgent",
+            "success": true,
+            "latency_ms": 0.0772910425439477,
+            "fallback_used": false,
+            "metadata": {
+              "input_candidates": 10,
+              "output_candidates": 10,
+              "removed_by_stock": 0,
+              "removed_by_history": 0,
+              "removed_duplicate": 0,
+              "min_stock": 1,
+              "agent_name": "FilterAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "LLMRerankAgent",
+            "success": true,
+            "latency_ms": 5769.006457994692,
+            "fallback_used": false,
+            "metadata": {
+              "rerank_mode": "llm",
+              "rerank_applied": true,
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 5768.518999917433,
+              "invalid_ids": [],
+              "input_items": 10,
+              "output_items": 10,
+              "summary": "The candidate products are all in the 'All Beauty' category, matching the user's top category. No brands from the user's top brands list are present, so the original order based on score is maintained.",
+              "risk": "No risk identified.",
+              "agent_name": "LLMRerankAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "MarketingAgent",
+            "success": true,
+            "latency_ms": 1944.818333024159,
+            "fallback_used": true,
+            "metadata": {
+              "input_items": 10,
+              "output_items": 10,
+              "reason_type": "llm",
+              "llm_reason_mode": "batch_top_n",
+              "llm_reason_top_n": 3,
+              "llm_batch_input_items": 3,
+              "template_reason_items": 7,
+              "llm_success_count": 1,
+              "llm_fallback_count": 2,
+              "llm_errors_sample": [
+                "B082VKPJV5:not_item_specific",
+                "B08VKQY815:reason_too_short"
+              ],
+              "llm_invalid_reason_count": 0,
+              "llm_quality_fallback_count": 2,
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 1943.893957999535,
+              "llm_batch_call_count": 1,
+              "agent_name": "MarketingAgent",
+              "attempt": 1
+            },
+            "error": null
+          }
+        ],
+        "trace_stats": {
+          "agent_latency": {
+            "UserProfileAgent": [
+              0.12633309233933687
+            ],
+            "GenerativeRecAgent": [
+              0.6170419510453939
+            ],
+            "FilterAgent": [
+              0.0772910425439477
+            ],
+            "LLMRerankAgent": [
+              5769.006457994692
+            ],
+            "MarketingAgent": [
+              1944.818333024159
+            ]
+          },
+          "agent_success": {
+            "UserProfileAgent": [
+              true
+            ],
+            "GenerativeRecAgent": [
+              true
+            ],
+            "FilterAgent": [
+              true
+            ],
+            "LLMRerankAgent": [
+              true
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "agent_fallback": {
+            "UserProfileAgent": [
+              false
+            ],
+            "GenerativeRecAgent": [
+              false
+            ],
+            "FilterAgent": [
+              false
+            ],
+            "LLMRerankAgent": [
+              false
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "invalid_ids_count": 0,
+          "query_guardrail_count": 0,
+          "llm_reason_fallback_count": 2,
+          "llm_quality_fallback_count": 2,
+          "llm_batch_call_count": 1,
+          "llm_batch_input_items": 3,
+          "template_reason_items": 7,
+          "semantic_queries": []
+        }
+      },
+      {
+        "mode_name": "genrec_gru_llm_full",
+        "user_id": "AE2IGWDKOWONDB3FQFX3STYGWCNQ",
+        "success": true,
+        "error": null,
+        "latency_ms": 4967.975292005576,
+        "fallback_used": true,
+        "num_final_items": 10,
+        "trace": [
+          {
+            "agent": "UserProfileAgent",
+            "success": true,
+            "latency_ms": 0.28145802207291126,
+            "fallback_used": false,
+            "metadata": {
+              "history_len": 8,
+              "top_categories": [
+                [
+                  "All Beauty",
+                  8
+                ]
+              ],
+              "top_brands": [
+                [
+                  "Laloirelle",
+                  2
+                ],
+                [
+                  "HOMELEX",
+                  1
+                ],
+                [
+                  "Kidskin",
+                  1
+                ]
+              ],
+              "agent_name": "UserProfileAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "GenerativeRecAgent",
+            "success": true,
+            "latency_ms": 1.5986670041456819,
+            "fallback_used": false,
+            "metadata": {
+              "requested_mode": "genrec_gru",
+              "used_mode": "genrec_gru",
+              "model_loaded": true,
+              "load_error": null,
+              "num_returned": 10,
+              "agent_name": "GenerativeRecAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "FilterAgent",
+            "success": true,
+            "latency_ms": 0.12312503531575203,
+            "fallback_used": false,
+            "metadata": {
+              "input_candidates": 10,
+              "output_candidates": 10,
+              "removed_by_stock": 0,
+              "removed_by_history": 0,
+              "removed_duplicate": 0,
+              "min_stock": 1,
+              "agent_name": "FilterAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "LLMRerankAgent",
+            "success": true,
+            "latency_ms": 2654.3077090755105,
+            "fallback_used": false,
+            "metadata": {
+              "rerank_mode": "llm",
+              "rerank_applied": true,
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 2653.721500071697,
+              "invalid_ids": [],
+              "input_items": 10,
+              "output_items": 10,
+              "summary": "Reranked based on user's top category 'All Beauty' and brand affinity. Karuna products (matching brand) are prioritized, then other brands with high scores.",
+              "risk": "Low risk as all products are from the same category and stock is sufficient.",
+              "agent_name": "LLMRerankAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "MarketingAgent",
+            "success": true,
+            "latency_ms": 2305.194666958414,
+            "fallback_used": true,
+            "metadata": {
+              "input_items": 10,
+              "output_items": 10,
+              "reason_type": "llm",
+              "llm_reason_mode": "batch_top_n",
+              "llm_reason_top_n": 3,
+              "llm_batch_input_items": 3,
+              "template_reason_items": 7,
+              "llm_success_count": 2,
+              "llm_fallback_count": 1,
+              "llm_errors_sample": [
+                "B08BS19VF8:reason_too_short"
+              ],
+              "llm_invalid_reason_count": 0,
+              "llm_quality_fallback_count": 1,
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 2304.2605000082403,
+              "llm_batch_call_count": 1,
+              "agent_name": "MarketingAgent",
+              "attempt": 1
+            },
+            "error": null
+          }
+        ],
+        "trace_stats": {
+          "agent_latency": {
+            "UserProfileAgent": [
+              0.28145802207291126
+            ],
+            "GenerativeRecAgent": [
+              1.5986670041456819
+            ],
+            "FilterAgent": [
+              0.12312503531575203
+            ],
+            "LLMRerankAgent": [
+              2654.3077090755105
+            ],
+            "MarketingAgent": [
+              2305.194666958414
+            ]
+          },
+          "agent_success": {
+            "UserProfileAgent": [
+              true
+            ],
+            "GenerativeRecAgent": [
+              true
+            ],
+            "FilterAgent": [
+              true
+            ],
+            "LLMRerankAgent": [
+              true
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "agent_fallback": {
+            "UserProfileAgent": [
+              false
+            ],
+            "GenerativeRecAgent": [
+              false
+            ],
+            "FilterAgent": [
+              false
+            ],
+            "LLMRerankAgent": [
+              false
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "invalid_ids_count": 0,
+          "query_guardrail_count": 0,
+          "llm_reason_fallback_count": 1,
+          "llm_quality_fallback_count": 1,
+          "llm_batch_call_count": 1,
+          "llm_batch_input_items": 3,
+          "template_reason_items": 7,
+          "semantic_queries": []
+        }
+      },
+      {
+        "mode_name": "genrec_gru_llm_full",
+        "user_id": "AE2O2C43KTYO4LXXGZWJZLE67GBQ",
+        "success": true,
+        "error": null,
+        "latency_ms": 4917.549957986921,
+        "fallback_used": true,
+        "num_final_items": 10,
+        "trace": [
+          {
+            "agent": "UserProfileAgent",
+            "success": true,
+            "latency_ms": 0.2317499602213502,
+            "fallback_used": false,
+            "metadata": {
+              "history_len": 6,
+              "top_categories": [
+                [
+                  "All Beauty",
+                  6
+                ]
+              ],
+              "top_brands": [
+                [
+                  "BEOKREU",
+                  1
+                ],
+                [
+                  "GIDIBII",
+                  1
+                ],
+                [
+                  "Eye Love",
+                  1
+                ]
+              ],
+              "agent_name": "UserProfileAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "GenerativeRecAgent",
+            "success": true,
+            "latency_ms": 1.5721670351922512,
+            "fallback_used": false,
+            "metadata": {
+              "requested_mode": "genrec_gru",
+              "used_mode": "genrec_gru",
+              "model_loaded": true,
+              "load_error": null,
+              "num_returned": 10,
+              "agent_name": "GenerativeRecAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "FilterAgent",
+            "success": true,
+            "latency_ms": 0.12508395593613386,
+            "fallback_used": false,
+            "metadata": {
+              "input_candidates": 10,
+              "output_candidates": 10,
+              "removed_by_stock": 0,
+              "removed_by_history": 0,
+              "removed_duplicate": 0,
+              "min_stock": 1,
+              "agent_name": "FilterAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "LLMRerankAgent",
+            "success": true,
+            "latency_ms": 2365.2293339837343,
+            "fallback_used": false,
+            "metadata": {
+              "rerank_mode": "llm",
+              "rerank_applied": true,
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 2364.6957079181448,
+              "invalid_ids": [],
+              "input_items": 10,
+              "output_items": 10,
+              "summary": "Reranked based on brand preference (EASYDEW prioritized) and relevance to user's top category 'All Beauty'.",
+              "risk": "Low risk as all products are from the same category and top brands are favored.",
+              "agent_name": "LLMRerankAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "MarketingAgent",
+            "success": true,
+            "latency_ms": 2544.439290999435,
+            "fallback_used": true,
+            "metadata": {
+              "input_items": 10,
+              "output_items": 10,
+              "reason_type": "llm",
+              "llm_reason_mode": "batch_top_n",
+              "llm_reason_top_n": 3,
+              "llm_batch_input_items": 3,
+              "template_reason_items": 7,
+              "llm_success_count": 2,
+              "llm_fallback_count": 1,
+              "llm_errors_sample": [
+                "B08HRNPNR5:unsupported_price_claim:deal"
+              ],
+              "llm_invalid_reason_count": 0,
+              "llm_quality_fallback_count": 1,
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 2543.6412499984726,
+              "llm_batch_call_count": 1,
+              "agent_name": "MarketingAgent",
+              "attempt": 1
+            },
+            "error": null
+          }
+        ],
+        "trace_stats": {
+          "agent_latency": {
+            "UserProfileAgent": [
+              0.2317499602213502
+            ],
+            "GenerativeRecAgent": [
+              1.5721670351922512
+            ],
+            "FilterAgent": [
+              0.12508395593613386
+            ],
+            "LLMRerankAgent": [
+              2365.2293339837343
+            ],
+            "MarketingAgent": [
+              2544.439290999435
+            ]
+          },
+          "agent_success": {
+            "UserProfileAgent": [
+              true
+            ],
+            "GenerativeRecAgent": [
+              true
+            ],
+            "FilterAgent": [
+              true
+            ],
+            "LLMRerankAgent": [
+              true
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "agent_fallback": {
+            "UserProfileAgent": [
+              false
+            ],
+            "GenerativeRecAgent": [
+              false
+            ],
+            "FilterAgent": [
+              false
+            ],
+            "LLMRerankAgent": [
+              false
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "invalid_ids_count": 0,
+          "query_guardrail_count": 0,
+          "llm_reason_fallback_count": 1,
+          "llm_quality_fallback_count": 1,
+          "llm_batch_call_count": 1,
+          "llm_batch_input_items": 3,
+          "template_reason_items": 7,
+          "semantic_queries": []
+        }
+      },
+      {
+        "mode_name": "genrec_gru_llm_full",
+        "user_id": "AE2VAC2YOW5N3DLYBQ6LKVIB6WPQ",
+        "success": true,
+        "error": null,
+        "latency_ms": 5047.662958968431,
+        "fallback_used": true,
+        "num_final_items": 10,
+        "trace": [
+          {
+            "agent": "UserProfileAgent",
+            "success": true,
+            "latency_ms": 0.20016694907099009,
+            "fallback_used": false,
+            "metadata": {
+              "history_len": 5,
+              "top_categories": [
+                [
+                  "All Beauty",
+                  5
+                ]
+              ],
+              "top_brands": [
+                [
+                  "Zegaine",
+                  3
+                ],
+                [
+                  "zenotti",
+                  2
+                ]
+              ],
+              "agent_name": "UserProfileAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "GenerativeRecAgent",
+            "success": true,
+            "latency_ms": 1.5713339671492577,
+            "fallback_used": false,
+            "metadata": {
+              "requested_mode": "genrec_gru",
+              "used_mode": "genrec_gru",
+              "model_loaded": true,
+              "load_error": null,
+              "num_returned": 10,
+              "agent_name": "GenerativeRecAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "FilterAgent",
+            "success": true,
+            "latency_ms": 0.1088329590857029,
+            "fallback_used": false,
+            "metadata": {
+              "input_candidates": 10,
+              "output_candidates": 10,
+              "removed_by_stock": 0,
+              "removed_by_history": 0,
+              "removed_duplicate": 0,
+              "min_stock": 1,
+              "agent_name": "FilterAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "LLMRerankAgent",
+            "success": true,
+            "latency_ms": 2473.868291010149,
+            "fallback_used": false,
+            "metadata": {
+              "rerank_mode": "llm",
+              "rerank_applied": true,
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 2473.191541968845,
+              "invalid_ids": [],
+              "input_items": 10,
+              "output_items": 10,
+              "summary": "All candidates are in the user's top category 'All Beauty'. No brands match the user's top brands (Zegaine, zenotti). The original ranking by score is preserved as no brand preference can be applied.",
+              "risk": "No products from preferred brands; user may not find desired brand items.",
+              "agent_name": "LLMRerankAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "MarketingAgent",
+            "success": true,
+            "latency_ms": 2565.700334031135,
+            "fallback_used": true,
+            "metadata": {
+              "input_items": 10,
+              "output_items": 10,
+              "reason_type": "llm",
+              "llm_reason_mode": "batch_top_n",
+              "llm_reason_top_n": 3,
+              "llm_batch_input_items": 3,
+              "template_reason_items": 7,
+              "llm_success_count": 1,
+              "llm_fallback_count": 2,
+              "llm_errors_sample": [
+                "B08HCMNLKD:unsupported_price_claim:sale",
+                "B08XJTL1D1:unsupported_price_claim:deal"
+              ],
+              "llm_invalid_reason_count": 0,
+              "llm_quality_fallback_count": 2,
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 2564.805499976501,
+              "llm_batch_call_count": 1,
+              "agent_name": "MarketingAgent",
+              "attempt": 1
+            },
+            "error": null
+          }
+        ],
+        "trace_stats": {
+          "agent_latency": {
+            "UserProfileAgent": [
+              0.20016694907099009
+            ],
+            "GenerativeRecAgent": [
+              1.5713339671492577
+            ],
+            "FilterAgent": [
+              0.1088329590857029
+            ],
+            "LLMRerankAgent": [
+              2473.868291010149
+            ],
+            "MarketingAgent": [
+              2565.700334031135
+            ]
+          },
+          "agent_success": {
+            "UserProfileAgent": [
+              true
+            ],
+            "GenerativeRecAgent": [
+              true
+            ],
+            "FilterAgent": [
+              true
+            ],
+            "LLMRerankAgent": [
+              true
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "agent_fallback": {
+            "UserProfileAgent": [
+              false
+            ],
+            "GenerativeRecAgent": [
+              false
+            ],
+            "FilterAgent": [
+              false
+            ],
+            "LLMRerankAgent": [
+              false
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "invalid_ids_count": 0,
+          "query_guardrail_count": 0,
+          "llm_reason_fallback_count": 2,
+          "llm_quality_fallback_count": 2,
+          "llm_batch_call_count": 1,
+          "llm_batch_input_items": 3,
+          "template_reason_items": 7,
+          "semantic_queries": []
+        }
+      },
+      {
+        "mode_name": "genrec_gru_llm_full",
+        "user_id": "AE2WYNQPBMS67OHFWV63NI4MSJEA",
+        "success": true,
+        "error": null,
+        "latency_ms": 4253.943666932173,
+        "fallback_used": false,
+        "num_final_items": 10,
+        "trace": [
+          {
+            "agent": "UserProfileAgent",
+            "success": true,
+            "latency_ms": 0.25158398784697056,
+            "fallback_used": false,
+            "metadata": {
+              "history_len": 9,
+              "top_categories": [
+                [
+                  "All Beauty",
+                  9
+                ]
+              ],
+              "top_brands": [
+                [
+                  "Beauty Bakerie",
+                  1
+                ],
+                [
+                  "VANALIA",
+                  1
+                ],
+                [
+                  "Sotica",
+                  1
+                ]
+              ],
+              "agent_name": "UserProfileAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "GenerativeRecAgent",
+            "success": true,
+            "latency_ms": 1.5923749888315797,
+            "fallback_used": false,
+            "metadata": {
+              "requested_mode": "genrec_gru",
+              "used_mode": "genrec_gru",
+              "model_loaded": true,
+              "load_error": null,
+              "num_returned": 10,
+              "agent_name": "GenerativeRecAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "FilterAgent",
+            "success": true,
+            "latency_ms": 0.16179203521460295,
+            "fallback_used": false,
+            "metadata": {
+              "input_candidates": 10,
+              "output_candidates": 10,
+              "removed_by_stock": 0,
+              "removed_by_history": 0,
+              "removed_duplicate": 0,
+              "min_stock": 1,
+              "agent_name": "FilterAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "LLMRerankAgent",
+            "success": true,
+            "latency_ms": 2202.160374959931,
+            "fallback_used": false,
+            "metadata": {
+              "rerank_mode": "llm",
+              "rerank_applied": true,
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 2201.4877080218866,
+              "invalid_ids": [],
+              "input_items": 10,
+              "output_items": 10,
+              "summary": "Reranked based on brand preference (QTMY first, then other brands) and original score order within same brand.",
+              "risk": "Low",
+              "agent_name": "LLMRerankAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "MarketingAgent",
+            "success": true,
+            "latency_ms": 2043.274583062157,
+            "fallback_used": false,
+            "metadata": {
+              "input_items": 10,
+              "output_items": 10,
+              "reason_type": "llm",
+              "llm_reason_mode": "batch_top_n",
+              "llm_reason_top_n": 3,
+              "llm_batch_input_items": 3,
+              "template_reason_items": 7,
+              "llm_success_count": 3,
+              "llm_fallback_count": 0,
+              "llm_errors_sample": [],
+              "llm_invalid_reason_count": 0,
+              "llm_quality_fallback_count": 0,
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 2042.6258340012282,
+              "llm_batch_call_count": 1,
+              "agent_name": "MarketingAgent",
+              "attempt": 1
+            },
+            "error": null
+          }
+        ],
+        "trace_stats": {
+          "agent_latency": {
+            "UserProfileAgent": [
+              0.25158398784697056
+            ],
+            "GenerativeRecAgent": [
+              1.5923749888315797
+            ],
+            "FilterAgent": [
+              0.16179203521460295
+            ],
+            "LLMRerankAgent": [
+              2202.160374959931
+            ],
+            "MarketingAgent": [
+              2043.274583062157
+            ]
+          },
+          "agent_success": {
+            "UserProfileAgent": [
+              true
+            ],
+            "GenerativeRecAgent": [
+              true
+            ],
+            "FilterAgent": [
+              true
+            ],
+            "LLMRerankAgent": [
+              true
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "agent_fallback": {
+            "UserProfileAgent": [
+              false
+            ],
+            "GenerativeRecAgent": [
+              false
+            ],
+            "FilterAgent": [
+              false
+            ],
+            "LLMRerankAgent": [
+              false
+            ],
+            "MarketingAgent": [
+              false
+            ]
+          },
+          "invalid_ids_count": 0,
+          "query_guardrail_count": 0,
+          "llm_reason_fallback_count": 0,
+          "llm_quality_fallback_count": 0,
+          "llm_batch_call_count": 1,
+          "llm_batch_input_items": 3,
+          "template_reason_items": 7,
+          "semantic_queries": []
+        }
+      }
+    ],
+    "llm_query_recall_template": [
+      {
+        "mode_name": "llm_query_recall_template",
+        "user_id": "AE23ZBUF2YVBQPH2NN6F5XSA3QYQ",
+        "success": true,
+        "error": null,
+        "latency_ms": 2068.152541993186,
+        "fallback_used": false,
+        "num_final_items": 10,
+        "trace": [
+          {
+            "agent": "UserProfileAgent",
+            "success": true,
+            "latency_ms": 0.2555000828579068,
+            "fallback_used": false,
+            "metadata": {
+              "history_len": 10,
+              "top_categories": [
+                [
+                  "All Beauty",
+                  10
+                ]
+              ],
+              "top_brands": [
+                [
+                  "Golden Gift Box",
+                  1
+                ],
+                [
+                  "MEETWIN",
+                  1
+                ],
+                [
+                  "Panama Jack",
+                  1
+                ]
+              ],
+              "agent_name": "UserProfileAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "LLMQueryRecallAgent",
+            "success": true,
+            "latency_ms": 2063.5009160032496,
+            "fallback_used": false,
+            "metadata": {
+              "requested_mode": "llm_query_recall",
+              "used_mode": "llm_query_recall",
+              "llm_role": "semantic_query_generation",
+              "llm_decides_products": false,
+              "llm_candidate_scope": "vector_retrieval_from_local_catalog",
+              "semantic_query": "facial care kit with sheet masks and hair towel wrap",
+              "intent_summary": "User is interested in facial care and hair accessories, with a focus on self-care and beauty routines.",
+              "preferred_attributes": [
+                "facial mask",
+                "sheet mask",
+                "hair towel",
+                "self-care",
+                "beauty kit"
+              ],
+              "risk": "low",
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 1541.1715829977766,
+              "retrieval_backend": "numpy_cosine",
+              "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+              "retrieval_latency_ms": 521.4508749777451,
+              "retrieved_item_count": 50,
+              "num_returned": 10,
+              "fallback_reason": null,
+              "removed_by_query_guardrail": 2,
+              "query_guardrail_sample": [
+                {
+                  "product_id": "B08LQSYNZV",
+                  "title": "STOCK IN USA 5 Pcs NEW Premium Material Quality Reusable Plastic Clear Face Mask,Higher Wilder,Transparent Anti-Fog mask for Restaurant, Yoga, Hair Salon, Nail shop, School. White Frame,UltraLight",
+                  "reason": "blocked_ambiguous_mask_item:anti-fog"
+                },
+                {
+                  "product_id": "B08174L3RB",
+                  "title": "First Class Kit, International Travel, TSA Approved, Satin Eye Mask, Travel Pillowcase, Ear Plugs, Antibacterial Wipes, Travel Tissues, Perfect Overnight International Flights, Refreshed Traveler",
+                  "reason": "blocked_ambiguous_mask_item:travel pillowcase"
+                }
+              ],
+              "agent_name": "LLMQueryRecallAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "FilterAgent",
+            "success": true,
+            "latency_ms": 0.09774998761713505,
+            "fallback_used": false,
+            "metadata": {
+              "input_candidates": 10,
+              "output_candidates": 10,
+              "removed_by_stock": 0,
+              "removed_by_history": 0,
+              "removed_duplicate": 0,
+              "min_stock": 1,
+              "agent_name": "FilterAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "MarketingAgent",
+            "success": true,
+            "latency_ms": 0.12858409900218248,
+            "fallback_used": false,
+            "metadata": {
+              "input_items": 10,
+              "output_items": 10,
+              "reason_type": "template",
+              "llm_reason_mode": "none",
+              "llm_success_count": 0,
+              "llm_fallback_count": 0,
+              "llm_errors_sample": [],
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "agent_name": "MarketingAgent",
+              "attempt": 1
+            },
+            "error": null
+          }
+        ],
+        "trace_stats": {
+          "agent_latency": {
+            "UserProfileAgent": [
+              0.2555000828579068
+            ],
+            "LLMQueryRecallAgent": [
+              2063.5009160032496
+            ],
+            "FilterAgent": [
+              0.09774998761713505
+            ],
+            "MarketingAgent": [
+              0.12858409900218248
+            ]
+          },
+          "agent_success": {
+            "UserProfileAgent": [
+              true
+            ],
+            "LLMQueryRecallAgent": [
+              true
+            ],
+            "FilterAgent": [
+              true
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "agent_fallback": {
+            "UserProfileAgent": [
+              false
+            ],
+            "LLMQueryRecallAgent": [
+              false
+            ],
+            "FilterAgent": [
+              false
+            ],
+            "MarketingAgent": [
+              false
+            ]
+          },
+          "invalid_ids_count": 0,
+          "query_guardrail_count": 2,
+          "llm_reason_fallback_count": 0,
+          "llm_quality_fallback_count": 0,
+          "llm_batch_call_count": 0,
+          "llm_batch_input_items": 0,
+          "template_reason_items": 0,
+          "semantic_queries": [
+            "facial care kit with sheet masks and hair towel wrap"
+          ]
+        }
+      },
+      {
+        "mode_name": "llm_query_recall_template",
+        "user_id": "AE2IGWDKOWONDB3FQFX3STYGWCNQ",
+        "success": true,
+        "error": null,
+        "latency_ms": 1770.7919999957085,
+        "fallback_used": false,
+        "num_final_items": 9,
+        "trace": [
+          {
+            "agent": "UserProfileAgent",
+            "success": true,
+            "latency_ms": 0.15608395915478468,
+            "fallback_used": false,
+            "metadata": {
+              "history_len": 8,
+              "top_categories": [
+                [
+                  "All Beauty",
+                  8
+                ]
+              ],
+              "top_brands": [
+                [
+                  "Laloirelle",
+                  2
+                ],
+                [
+                  "HOMELEX",
+                  1
+                ],
+                [
+                  "Kidskin",
+                  1
+                ]
+              ],
+              "agent_name": "UserProfileAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "LLMQueryRecallAgent",
+            "success": true,
+            "latency_ms": 1767.0712500112131,
+            "fallback_used": false,
+            "metadata": {
+              "requested_mode": "llm_query_recall",
+              "used_mode": "llm_query_recall",
+              "llm_role": "semantic_query_generation",
+              "llm_decides_products": false,
+              "llm_candidate_scope": "vector_retrieval_from_local_catalog",
+              "semantic_query": "anti-aging facial serum oil moisturizer",
+              "intent_summary": "User is interested in facial skincare products, particularly anti-aging serums and oils, as well as cleansing and moisturizing items.",
+              "preferred_attributes": [
+                "organic",
+                "anti-aging",
+                "hydrating",
+                "for all skin types"
+              ],
+              "risk": "low",
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 1679.1908330051228,
+              "retrieval_backend": "numpy_cosine",
+              "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+              "retrieval_latency_ms": 87.32866693753749,
+              "retrieved_item_count": 50,
+              "num_returned": 10,
+              "fallback_reason": null,
+              "removed_by_query_guardrail": 0,
+              "query_guardrail_sample": [],
+              "agent_name": "LLMQueryRecallAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "FilterAgent",
+            "success": true,
+            "latency_ms": 0.11312495917081833,
+            "fallback_used": false,
+            "metadata": {
+              "input_candidates": 10,
+              "output_candidates": 9,
+              "removed_by_stock": 1,
+              "removed_by_history": 0,
+              "removed_duplicate": 0,
+              "min_stock": 1,
+              "agent_name": "FilterAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "MarketingAgent",
+            "success": true,
+            "latency_ms": 0.15179207548499107,
+            "fallback_used": false,
+            "metadata": {
+              "input_items": 9,
+              "output_items": 9,
+              "reason_type": "template",
+              "llm_reason_mode": "none",
+              "llm_success_count": 0,
+              "llm_fallback_count": 0,
+              "llm_errors_sample": [],
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "agent_name": "MarketingAgent",
+              "attempt": 1
+            },
+            "error": null
+          }
+        ],
+        "trace_stats": {
+          "agent_latency": {
+            "UserProfileAgent": [
+              0.15608395915478468
+            ],
+            "LLMQueryRecallAgent": [
+              1767.0712500112131
+            ],
+            "FilterAgent": [
+              0.11312495917081833
+            ],
+            "MarketingAgent": [
+              0.15179207548499107
+            ]
+          },
+          "agent_success": {
+            "UserProfileAgent": [
+              true
+            ],
+            "LLMQueryRecallAgent": [
+              true
+            ],
+            "FilterAgent": [
+              true
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "agent_fallback": {
+            "UserProfileAgent": [
+              false
+            ],
+            "LLMQueryRecallAgent": [
+              false
+            ],
+            "FilterAgent": [
+              false
+            ],
+            "MarketingAgent": [
+              false
+            ]
+          },
+          "invalid_ids_count": 0,
+          "query_guardrail_count": 0,
+          "llm_reason_fallback_count": 0,
+          "llm_quality_fallback_count": 0,
+          "llm_batch_call_count": 0,
+          "llm_batch_input_items": 0,
+          "template_reason_items": 0,
+          "semantic_queries": [
+            "anti-aging facial serum oil moisturizer"
+          ]
+        }
+      },
+      {
+        "mode_name": "llm_query_recall_template",
+        "user_id": "AE2O2C43KTYO4LXXGZWJZLE67GBQ",
+        "success": true,
+        "error": null,
+        "latency_ms": 1627.9873750172555,
+        "fallback_used": false,
+        "num_final_items": 10,
+        "trace": [
+          {
+            "agent": "UserProfileAgent",
+            "success": true,
+            "latency_ms": 0.13654096983373165,
+            "fallback_used": false,
+            "metadata": {
+              "history_len": 6,
+              "top_categories": [
+                [
+                  "All Beauty",
+                  6
+                ]
+              ],
+              "top_brands": [
+                [
+                  "BEOKREU",
+                  1
+                ],
+                [
+                  "GIDIBII",
+                  1
+                ],
+                [
+                  "Eye Love",
+                  1
+                ]
+              ],
+              "agent_name": "UserProfileAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "LLMQueryRecallAgent",
+            "success": true,
+            "latency_ms": 1624.6319999918342,
+            "fallback_used": false,
+            "metadata": {
+              "requested_mode": "llm_query_recall",
+              "used_mode": "llm_query_recall",
+              "llm_role": "semantic_query_generation",
+              "llm_decides_products": false,
+              "llm_candidate_scope": "vector_retrieval_from_local_catalog",
+              "semantic_query": "personal care grooming tools oral care nail care skincare",
+              "intent_summary": "User is interested in personal care and grooming tools, including oral care, nail care, and skincare products.",
+              "preferred_attributes": [
+                "portable",
+                "stainless steel",
+                "natural",
+                "organic"
+              ],
+              "risk": "low",
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 1536.3177079707384,
+              "retrieval_backend": "numpy_cosine",
+              "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+              "retrieval_latency_ms": 87.45670900680125,
+              "retrieved_item_count": 50,
+              "num_returned": 10,
+              "fallback_reason": null,
+              "removed_by_query_guardrail": 0,
+              "query_guardrail_sample": [],
+              "agent_name": "LLMQueryRecallAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "FilterAgent",
+            "success": true,
+            "latency_ms": 0.09904103353619576,
+            "fallback_used": false,
+            "metadata": {
+              "input_candidates": 10,
+              "output_candidates": 10,
+              "removed_by_stock": 0,
+              "removed_by_history": 0,
+              "removed_duplicate": 0,
+              "min_stock": 1,
+              "agent_name": "FilterAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "MarketingAgent",
+            "success": true,
+            "latency_ms": 0.13954099267721176,
+            "fallback_used": false,
+            "metadata": {
+              "input_items": 10,
+              "output_items": 10,
+              "reason_type": "template",
+              "llm_reason_mode": "none",
+              "llm_success_count": 0,
+              "llm_fallback_count": 0,
+              "llm_errors_sample": [],
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "agent_name": "MarketingAgent",
+              "attempt": 1
+            },
+            "error": null
+          }
+        ],
+        "trace_stats": {
+          "agent_latency": {
+            "UserProfileAgent": [
+              0.13654096983373165
+            ],
+            "LLMQueryRecallAgent": [
+              1624.6319999918342
+            ],
+            "FilterAgent": [
+              0.09904103353619576
+            ],
+            "MarketingAgent": [
+              0.13954099267721176
+            ]
+          },
+          "agent_success": {
+            "UserProfileAgent": [
+              true
+            ],
+            "LLMQueryRecallAgent": [
+              true
+            ],
+            "FilterAgent": [
+              true
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "agent_fallback": {
+            "UserProfileAgent": [
+              false
+            ],
+            "LLMQueryRecallAgent": [
+              false
+            ],
+            "FilterAgent": [
+              false
+            ],
+            "MarketingAgent": [
+              false
+            ]
+          },
+          "invalid_ids_count": 0,
+          "query_guardrail_count": 0,
+          "llm_reason_fallback_count": 0,
+          "llm_quality_fallback_count": 0,
+          "llm_batch_call_count": 0,
+          "llm_batch_input_items": 0,
+          "template_reason_items": 0,
+          "semantic_queries": [
+            "personal care grooming tools oral care nail care skincare"
+          ]
+        }
+      },
+      {
+        "mode_name": "llm_query_recall_template",
+        "user_id": "AE2VAC2YOW5N3DLYBQ6LKVIB6WPQ",
+        "success": true,
+        "error": null,
+        "latency_ms": 2072.3767089657485,
+        "fallback_used": false,
+        "num_final_items": 10,
+        "trace": [
+          {
+            "agent": "UserProfileAgent",
+            "success": true,
+            "latency_ms": 0.11987495236098766,
+            "fallback_used": false,
+            "metadata": {
+              "history_len": 5,
+              "top_categories": [
+                [
+                  "All Beauty",
+                  5
+                ]
+              ],
+              "top_brands": [
+                [
+                  "Zegaine",
+                  3
+                ],
+                [
+                  "zenotti",
+                  2
+                ]
+              ],
+              "agent_name": "UserProfileAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "LLMQueryRecallAgent",
+            "success": true,
+            "latency_ms": 2069.1130419727415,
+            "fallback_used": false,
+            "metadata": {
+              "requested_mode": "llm_query_recall",
+              "used_mode": "llm_query_recall",
+              "llm_role": "semantic_query_generation",
+              "llm_decides_products": false,
+              "llm_candidate_scope": "vector_retrieval_from_local_catalog",
+              "semantic_query": "faux mink false eyelashes natural look volume bulk pack",
+              "intent_summary": "User is interested in purchasing false eyelashes, specifically faux mink lashes in bulk packs with natural look and volume.",
+              "preferred_attributes": [
+                "faux mink",
+                "natural look",
+                "volume",
+                "bulk pack"
+              ],
+              "risk": "low",
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 2007.0191669510677,
+              "retrieval_backend": "numpy_cosine",
+              "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+              "retrieval_latency_ms": 61.529833008535206,
+              "retrieved_item_count": 50,
+              "num_returned": 10,
+              "fallback_reason": null,
+              "removed_by_query_guardrail": 0,
+              "query_guardrail_sample": [],
+              "agent_name": "LLMQueryRecallAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "FilterAgent",
+            "success": true,
+            "latency_ms": 0.10262499563395977,
+            "fallback_used": false,
+            "metadata": {
+              "input_candidates": 10,
+              "output_candidates": 10,
+              "removed_by_stock": 0,
+              "removed_by_history": 0,
+              "removed_duplicate": 0,
+              "min_stock": 1,
+              "agent_name": "FilterAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "MarketingAgent",
+            "success": true,
+            "latency_ms": 0.14249992091208696,
+            "fallback_used": false,
+            "metadata": {
+              "input_items": 10,
+              "output_items": 10,
+              "reason_type": "template",
+              "llm_reason_mode": "none",
+              "llm_success_count": 0,
+              "llm_fallback_count": 0,
+              "llm_errors_sample": [],
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "agent_name": "MarketingAgent",
+              "attempt": 1
+            },
+            "error": null
+          }
+        ],
+        "trace_stats": {
+          "agent_latency": {
+            "UserProfileAgent": [
+              0.11987495236098766
+            ],
+            "LLMQueryRecallAgent": [
+              2069.1130419727415
+            ],
+            "FilterAgent": [
+              0.10262499563395977
+            ],
+            "MarketingAgent": [
+              0.14249992091208696
+            ]
+          },
+          "agent_success": {
+            "UserProfileAgent": [
+              true
+            ],
+            "LLMQueryRecallAgent": [
+              true
+            ],
+            "FilterAgent": [
+              true
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "agent_fallback": {
+            "UserProfileAgent": [
+              false
+            ],
+            "LLMQueryRecallAgent": [
+              false
+            ],
+            "FilterAgent": [
+              false
+            ],
+            "MarketingAgent": [
+              false
+            ]
+          },
+          "invalid_ids_count": 0,
+          "query_guardrail_count": 0,
+          "llm_reason_fallback_count": 0,
+          "llm_quality_fallback_count": 0,
+          "llm_batch_call_count": 0,
+          "llm_batch_input_items": 0,
+          "template_reason_items": 0,
+          "semantic_queries": [
+            "faux mink false eyelashes natural look volume bulk pack"
+          ]
+        }
+      },
+      {
+        "mode_name": "llm_query_recall_template",
+        "user_id": "AE2WYNQPBMS67OHFWV63NI4MSJEA",
+        "success": true,
+        "error": null,
+        "latency_ms": 1845.3469999367371,
+        "fallback_used": false,
+        "num_final_items": 10,
+        "trace": [
+          {
+            "agent": "UserProfileAgent",
+            "success": true,
+            "latency_ms": 0.1443750225007534,
+            "fallback_used": false,
+            "metadata": {
+              "history_len": 9,
+              "top_categories": [
+                [
+                  "All Beauty",
+                  9
+                ]
+              ],
+              "top_brands": [
+                [
+                  "Beauty Bakerie",
+                  1
+                ],
+                [
+                  "VANALIA",
+                  1
+                ],
+                [
+                  "Sotica",
+                  1
+                ]
+              ],
+              "agent_name": "UserProfileAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "LLMQueryRecallAgent",
+            "success": true,
+            "latency_ms": 1842.0755000552163,
+            "fallback_used": false,
+            "metadata": {
+              "requested_mode": "llm_query_recall",
+              "used_mode": "llm_query_recall",
+              "llm_role": "semantic_query_generation",
+              "llm_decides_products": false,
+              "llm_candidate_scope": "vector_retrieval_from_local_catalog",
+              "semantic_query": "beauty tools and accessories for makeup and nail care",
+              "intent_summary": "User is exploring a variety of beauty products including lipstick, nail care, makeup tools, skincare, and hair accessories, indicating a general interest in beauty and personal care.",
+              "preferred_attributes": [
+                "long lasting",
+                "professional",
+                "hydrating",
+                "gentle"
+              ],
+              "risk": "medium",
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 1779.111124924384,
+              "retrieval_backend": "numpy_cosine",
+              "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+              "retrieval_latency_ms": 62.47787503525615,
+              "retrieved_item_count": 50,
+              "num_returned": 10,
+              "fallback_reason": null,
+              "removed_by_query_guardrail": 0,
+              "query_guardrail_sample": [],
+              "agent_name": "LLMQueryRecallAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "FilterAgent",
+            "success": true,
+            "latency_ms": 0.10254210792481899,
+            "fallback_used": false,
+            "metadata": {
+              "input_candidates": 10,
+              "output_candidates": 10,
+              "removed_by_stock": 0,
+              "removed_by_history": 0,
+              "removed_duplicate": 0,
+              "min_stock": 1,
+              "agent_name": "FilterAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "MarketingAgent",
+            "success": true,
+            "latency_ms": 0.1432499848306179,
+            "fallback_used": false,
+            "metadata": {
+              "input_items": 10,
+              "output_items": 10,
+              "reason_type": "template",
+              "llm_reason_mode": "none",
+              "llm_success_count": 0,
+              "llm_fallback_count": 0,
+              "llm_errors_sample": [],
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "agent_name": "MarketingAgent",
+              "attempt": 1
+            },
+            "error": null
+          }
+        ],
+        "trace_stats": {
+          "agent_latency": {
+            "UserProfileAgent": [
+              0.1443750225007534
+            ],
+            "LLMQueryRecallAgent": [
+              1842.0755000552163
+            ],
+            "FilterAgent": [
+              0.10254210792481899
+            ],
+            "MarketingAgent": [
+              0.1432499848306179
+            ]
+          },
+          "agent_success": {
+            "UserProfileAgent": [
+              true
+            ],
+            "LLMQueryRecallAgent": [
+              true
+            ],
+            "FilterAgent": [
+              true
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "agent_fallback": {
+            "UserProfileAgent": [
+              false
+            ],
+            "LLMQueryRecallAgent": [
+              false
+            ],
+            "FilterAgent": [
+              false
+            ],
+            "MarketingAgent": [
+              false
+            ]
+          },
+          "invalid_ids_count": 0,
+          "query_guardrail_count": 0,
+          "llm_reason_fallback_count": 0,
+          "llm_quality_fallback_count": 0,
+          "llm_batch_call_count": 0,
+          "llm_batch_input_items": 0,
+          "template_reason_items": 0,
+          "semantic_queries": [
+            "beauty tools and accessories for makeup and nail care"
+          ]
+        }
+      }
+    ],
+    "llm_query_recall_llm_full": [
+      {
+        "mode_name": "llm_query_recall_llm_full",
+        "user_id": "AE23ZBUF2YVBQPH2NN6F5XSA3QYQ",
+        "success": true,
+        "error": null,
+        "latency_ms": 7676.066667074338,
+        "fallback_used": true,
+        "num_final_items": 10,
+        "trace": [
+          {
+            "agent": "UserProfileAgent",
+            "success": true,
+            "latency_ms": 0.1445410307496786,
+            "fallback_used": false,
+            "metadata": {
+              "history_len": 10,
+              "top_categories": [
+                [
+                  "All Beauty",
+                  10
+                ]
+              ],
+              "top_brands": [
+                [
+                  "Golden Gift Box",
+                  1
+                ],
+                [
+                  "MEETWIN",
+                  1
+                ],
+                [
+                  "Panama Jack",
+                  1
+                ]
+              ],
+              "agent_name": "UserProfileAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "LLMQueryRecallAgent",
+            "success": true,
+            "latency_ms": 1825.0690000131726,
+            "fallback_used": false,
+            "metadata": {
+              "requested_mode": "llm_query_recall",
+              "used_mode": "llm_query_recall",
+              "llm_role": "semantic_query_generation",
+              "llm_decides_products": false,
+              "llm_candidate_scope": "vector_retrieval_from_local_catalog",
+              "semantic_query": "facial sheet mask cleanser skincare kit",
+              "intent_summary": "User is interested in facial care products, including masks, cleansers, and sheet masks, as well as hair accessories like towel wraps and scrunchies, but the dominant theme is facial skincare.",
+              "preferred_attributes": [
+                "hydrating",
+                "multivitamin",
+                "sheet mask",
+                "facial cleanser",
+                "self care"
+              ],
+              "risk": "low",
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 1740.289792069234,
+              "retrieval_backend": "numpy_cosine",
+              "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+              "retrieval_latency_ms": 84.24758294131607,
+              "retrieved_item_count": 50,
+              "num_returned": 10,
+              "fallback_reason": null,
+              "removed_by_query_guardrail": 1,
+              "query_guardrail_sample": [
+                {
+                  "product_id": "B08LQSYNZV",
+                  "title": "STOCK IN USA 5 Pcs NEW Premium Material Quality Reusable Plastic Clear Face Mask,Higher Wilder,Transparent Anti-Fog mask for Restaurant, Yoga, Hair Salon, Nail shop, School. White Frame,UltraLight",
+                  "reason": "blocked_ambiguous_mask_item:anti-fog"
+                }
+              ],
+              "agent_name": "LLMQueryRecallAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "FilterAgent",
+            "success": true,
+            "latency_ms": 0.11337501928210258,
+            "fallback_used": false,
+            "metadata": {
+              "input_candidates": 10,
+              "output_candidates": 10,
+              "removed_by_stock": 0,
+              "removed_by_history": 0,
+              "removed_duplicate": 0,
+              "min_stock": 1,
+              "agent_name": "FilterAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "LLMRerankAgent",
+            "success": true,
+            "latency_ms": 3286.1083750613034,
+            "fallback_used": false,
+            "metadata": {
+              "rerank_mode": "llm",
+              "rerank_applied": true,
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 3285.4009160073474,
+              "invalid_ids": [],
+              "input_items": 10,
+              "output_items": 10,
+              "summary": "Reranked based on relevance to user's top category 'All Beauty' and brand affinity. Top brands not present, so prioritized products with higher scores and stock availability.",
+              "risk": "No direct brand match; reliance on category and score may not fully capture user preference.",
+              "agent_name": "LLMRerankAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "MarketingAgent",
+            "success": true,
+            "latency_ms": 2558.805749984458,
+            "fallback_used": true,
+            "metadata": {
+              "input_items": 10,
+              "output_items": 10,
+              "reason_type": "llm",
+              "llm_reason_mode": "batch_top_n",
+              "llm_reason_top_n": 3,
+              "llm_batch_input_items": 3,
+              "template_reason_items": 7,
+              "llm_success_count": 2,
+              "llm_fallback_count": 1,
+              "llm_errors_sample": [
+                "B07YXB7TJ4:unsupported_price_claim:deal"
+              ],
+              "llm_invalid_reason_count": 0,
+              "llm_quality_fallback_count": 1,
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 2557.847582967952,
+              "llm_batch_call_count": 1,
+              "agent_name": "MarketingAgent",
+              "attempt": 1
+            },
+            "error": null
+          }
+        ],
+        "trace_stats": {
+          "agent_latency": {
+            "UserProfileAgent": [
+              0.1445410307496786
+            ],
+            "LLMQueryRecallAgent": [
+              1825.0690000131726
+            ],
+            "FilterAgent": [
+              0.11337501928210258
+            ],
+            "LLMRerankAgent": [
+              3286.1083750613034
+            ],
+            "MarketingAgent": [
+              2558.805749984458
+            ]
+          },
+          "agent_success": {
+            "UserProfileAgent": [
+              true
+            ],
+            "LLMQueryRecallAgent": [
+              true
+            ],
+            "FilterAgent": [
+              true
+            ],
+            "LLMRerankAgent": [
+              true
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "agent_fallback": {
+            "UserProfileAgent": [
+              false
+            ],
+            "LLMQueryRecallAgent": [
+              false
+            ],
+            "FilterAgent": [
+              false
+            ],
+            "LLMRerankAgent": [
+              false
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "invalid_ids_count": 0,
+          "query_guardrail_count": 1,
+          "llm_reason_fallback_count": 1,
+          "llm_quality_fallback_count": 1,
+          "llm_batch_call_count": 1,
+          "llm_batch_input_items": 3,
+          "template_reason_items": 7,
+          "semantic_queries": [
+            "facial sheet mask cleanser skincare kit"
+          ]
+        }
+      },
+      {
+        "mode_name": "llm_query_recall_llm_full",
+        "user_id": "AE2IGWDKOWONDB3FQFX3STYGWCNQ",
+        "success": true,
+        "error": null,
+        "latency_ms": 7476.218249998055,
+        "fallback_used": false,
+        "num_final_items": 10,
+        "trace": [
+          {
+            "agent": "UserProfileAgent",
+            "success": true,
+            "latency_ms": 0.25108305271714926,
+            "fallback_used": false,
+            "metadata": {
+              "history_len": 8,
+              "top_categories": [
+                [
+                  "All Beauty",
+                  8
+                ]
+              ],
+              "top_brands": [
+                [
+                  "Laloirelle",
+                  2
+                ],
+                [
+                  "HOMELEX",
+                  1
+                ],
+                [
+                  "Kidskin",
+                  1
+                ]
+              ],
+              "agent_name": "UserProfileAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "LLMQueryRecallAgent",
+            "success": true,
+            "latency_ms": 1847.6217919960618,
+            "fallback_used": false,
+            "metadata": {
+              "requested_mode": "llm_query_recall",
+              "used_mode": "llm_query_recall",
+              "llm_role": "semantic_query_generation",
+              "llm_decides_products": false,
+              "llm_candidate_scope": "vector_retrieval_from_local_catalog",
+              "semantic_query": "anti-aging facial serum with hyaluronic acid and retinol",
+              "intent_summary": "User is interested in facial skincare products, particularly anti-aging serums and oils, and also shows interest in cleansing and body care items.",
+              "preferred_attributes": [
+                "anti-aging",
+                "hydrating",
+                "organic",
+                "for all skin types"
+              ],
+              "risk": "low",
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 1670.2197920531034,
+              "retrieval_backend": "numpy_cosine",
+              "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+              "retrieval_latency_ms": 177.0153749966994,
+              "retrieved_item_count": 50,
+              "num_returned": 10,
+              "fallback_reason": null,
+              "removed_by_query_guardrail": 0,
+              "query_guardrail_sample": [],
+              "agent_name": "LLMQueryRecallAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "FilterAgent",
+            "success": true,
+            "latency_ms": 0.10583305265754461,
+            "fallback_used": false,
+            "metadata": {
+              "input_candidates": 10,
+              "output_candidates": 10,
+              "removed_by_stock": 0,
+              "removed_by_history": 0,
+              "removed_duplicate": 0,
+              "min_stock": 1,
+              "agent_name": "FilterAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "LLMRerankAgent",
+            "success": true,
+            "latency_ms": 3061.899041989818,
+            "fallback_used": false,
+            "metadata": {
+              "rerank_mode": "llm",
+              "rerank_applied": true,
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 3061.163874925114,
+              "invalid_ids": [],
+              "input_items": 10,
+              "output_items": 10,
+              "summary": "All candidates are in the 'All Beauty' category matching user's top category. The user's top brands are not present, so ranking is based on relevance scores. Products with higher scores and better stock are prioritized.",
+              "risk": "None of the user's top brands are available in the candidate list, which may reduce personalization. However, all products are relevant to the user's category preference.",
+              "agent_name": "LLMRerankAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "MarketingAgent",
+            "success": true,
+            "latency_ms": 2559.948083013296,
+            "fallback_used": false,
+            "metadata": {
+              "input_items": 10,
+              "output_items": 10,
+              "reason_type": "llm",
+              "llm_reason_mode": "batch_top_n",
+              "llm_reason_top_n": 3,
+              "llm_batch_input_items": 3,
+              "template_reason_items": 7,
+              "llm_success_count": 3,
+              "llm_fallback_count": 0,
+              "llm_errors_sample": [],
+              "llm_invalid_reason_count": 0,
+              "llm_quality_fallback_count": 0,
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 2558.9533749734983,
+              "llm_batch_call_count": 1,
+              "agent_name": "MarketingAgent",
+              "attempt": 1
+            },
+            "error": null
+          }
+        ],
+        "trace_stats": {
+          "agent_latency": {
+            "UserProfileAgent": [
+              0.25108305271714926
+            ],
+            "LLMQueryRecallAgent": [
+              1847.6217919960618
+            ],
+            "FilterAgent": [
+              0.10583305265754461
+            ],
+            "LLMRerankAgent": [
+              3061.899041989818
+            ],
+            "MarketingAgent": [
+              2559.948083013296
+            ]
+          },
+          "agent_success": {
+            "UserProfileAgent": [
+              true
+            ],
+            "LLMQueryRecallAgent": [
+              true
+            ],
+            "FilterAgent": [
+              true
+            ],
+            "LLMRerankAgent": [
+              true
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "agent_fallback": {
+            "UserProfileAgent": [
+              false
+            ],
+            "LLMQueryRecallAgent": [
+              false
+            ],
+            "FilterAgent": [
+              false
+            ],
+            "LLMRerankAgent": [
+              false
+            ],
+            "MarketingAgent": [
+              false
+            ]
+          },
+          "invalid_ids_count": 0,
+          "query_guardrail_count": 0,
+          "llm_reason_fallback_count": 0,
+          "llm_quality_fallback_count": 0,
+          "llm_batch_call_count": 1,
+          "llm_batch_input_items": 3,
+          "template_reason_items": 7,
+          "semantic_queries": [
+            "anti-aging facial serum with hyaluronic acid and retinol"
+          ]
+        }
+      },
+      {
+        "mode_name": "llm_query_recall_llm_full",
+        "user_id": "AE2O2C43KTYO4LXXGZWJZLE67GBQ",
+        "success": true,
+        "error": null,
+        "latency_ms": 6243.346958071925,
+        "fallback_used": false,
+        "num_final_items": 10,
+        "trace": [
+          {
+            "agent": "UserProfileAgent",
+            "success": true,
+            "latency_ms": 0.23445801343768835,
+            "fallback_used": false,
+            "metadata": {
+              "history_len": 6,
+              "top_categories": [
+                [
+                  "All Beauty",
+                  6
+                ]
+              ],
+              "top_brands": [
+                [
+                  "BEOKREU",
+                  1
+                ],
+                [
+                  "GIDIBII",
+                  1
+                ],
+                [
+                  "Eye Love",
+                  1
+                ]
+              ],
+              "agent_name": "UserProfileAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "LLMQueryRecallAgent",
+            "success": true,
+            "latency_ms": 1701.841291040182,
+            "fallback_used": false,
+            "metadata": {
+              "requested_mode": "llm_query_recall",
+              "used_mode": "llm_query_recall",
+              "llm_role": "semantic_query_generation",
+              "llm_decides_products": false,
+              "llm_candidate_scope": "vector_retrieval_from_local_catalog",
+              "semantic_query": "personal care grooming tools oral care nail care skincare",
+              "intent_summary": "User is interested in personal care and grooming tools, including oral care, nail care, and skincare products.",
+              "preferred_attributes": [
+                "portable",
+                "stainless steel",
+                "natural",
+                "organic"
+              ],
+              "risk": "low",
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 1631.655208999291,
+              "retrieval_backend": "numpy_cosine",
+              "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+              "retrieval_latency_ms": 69.63429192546755,
+              "retrieved_item_count": 50,
+              "num_returned": 10,
+              "fallback_reason": null,
+              "removed_by_query_guardrail": 0,
+              "query_guardrail_sample": [],
+              "agent_name": "LLMQueryRecallAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "FilterAgent",
+            "success": true,
+            "latency_ms": 0.10066700633615255,
+            "fallback_used": false,
+            "metadata": {
+              "input_candidates": 10,
+              "output_candidates": 10,
+              "removed_by_stock": 0,
+              "removed_by_history": 0,
+              "removed_duplicate": 0,
+              "min_stock": 1,
+              "agent_name": "FilterAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "LLMRerankAgent",
+            "success": true,
+            "latency_ms": 2286.2906670197845,
+            "fallback_used": false,
+            "metadata": {
+              "rerank_mode": "llm",
+              "rerank_applied": true,
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 2285.624874988571,
+              "invalid_ids": [],
+              "input_items": 10,
+              "output_items": 10,
+              "summary": "Reranked based on original scores, as no brand or category preference matches the user's top brands.",
+              "risk": "None",
+              "agent_name": "LLMRerankAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "MarketingAgent",
+            "success": true,
+            "latency_ms": 2248.42025001999,
+            "fallback_used": false,
+            "metadata": {
+              "input_items": 10,
+              "output_items": 10,
+              "reason_type": "llm",
+              "llm_reason_mode": "batch_top_n",
+              "llm_reason_top_n": 3,
+              "llm_batch_input_items": 3,
+              "template_reason_items": 7,
+              "llm_success_count": 3,
+              "llm_fallback_count": 0,
+              "llm_errors_sample": [],
+              "llm_invalid_reason_count": 0,
+              "llm_quality_fallback_count": 0,
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 2247.4696249701083,
+              "llm_batch_call_count": 1,
+              "agent_name": "MarketingAgent",
+              "attempt": 1
+            },
+            "error": null
+          }
+        ],
+        "trace_stats": {
+          "agent_latency": {
+            "UserProfileAgent": [
+              0.23445801343768835
+            ],
+            "LLMQueryRecallAgent": [
+              1701.841291040182
+            ],
+            "FilterAgent": [
+              0.10066700633615255
+            ],
+            "LLMRerankAgent": [
+              2286.2906670197845
+            ],
+            "MarketingAgent": [
+              2248.42025001999
+            ]
+          },
+          "agent_success": {
+            "UserProfileAgent": [
+              true
+            ],
+            "LLMQueryRecallAgent": [
+              true
+            ],
+            "FilterAgent": [
+              true
+            ],
+            "LLMRerankAgent": [
+              true
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "agent_fallback": {
+            "UserProfileAgent": [
+              false
+            ],
+            "LLMQueryRecallAgent": [
+              false
+            ],
+            "FilterAgent": [
+              false
+            ],
+            "LLMRerankAgent": [
+              false
+            ],
+            "MarketingAgent": [
+              false
+            ]
+          },
+          "invalid_ids_count": 0,
+          "query_guardrail_count": 0,
+          "llm_reason_fallback_count": 0,
+          "llm_quality_fallback_count": 0,
+          "llm_batch_call_count": 1,
+          "llm_batch_input_items": 3,
+          "template_reason_items": 7,
+          "semantic_queries": [
+            "personal care grooming tools oral care nail care skincare"
+          ]
+        }
+      },
+      {
+        "mode_name": "llm_query_recall_llm_full",
+        "user_id": "AE2VAC2YOW5N3DLYBQ6LKVIB6WPQ",
+        "success": true,
+        "error": null,
+        "latency_ms": 6727.689333958551,
+        "fallback_used": false,
+        "num_final_items": 10,
+        "trace": [
+          {
+            "agent": "UserProfileAgent",
+            "success": true,
+            "latency_ms": 0.19945797976106405,
+            "fallback_used": false,
+            "metadata": {
+              "history_len": 5,
+              "top_categories": [
+                [
+                  "All Beauty",
+                  5
+                ]
+              ],
+              "top_brands": [
+                [
+                  "Zegaine",
+                  3
+                ],
+                [
+                  "zenotti",
+                  2
+                ]
+              ],
+              "agent_name": "UserProfileAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "LLMQueryRecallAgent",
+            "success": true,
+            "latency_ms": 1790.860958979465,
+            "fallback_used": false,
+            "metadata": {
+              "requested_mode": "llm_query_recall",
+              "used_mode": "llm_query_recall",
+              "llm_role": "semantic_query_generation",
+              "llm_decides_products": false,
+              "llm_candidate_scope": "vector_retrieval_from_local_catalog",
+              "semantic_query": "faux mink false eyelashes natural look volume",
+              "intent_summary": "User is interested in purchasing false eyelashes, specifically faux mink strip lashes with natural look and volume.",
+              "preferred_attributes": [
+                "faux mink",
+                "natural look",
+                "volume",
+                "strip lashes"
+              ],
+              "risk": "low",
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 1736.8968330556527,
+              "retrieval_backend": "numpy_cosine",
+              "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+              "retrieval_latency_ms": 53.42741694767028,
+              "retrieved_item_count": 50,
+              "num_returned": 10,
+              "fallback_reason": null,
+              "removed_by_query_guardrail": 0,
+              "query_guardrail_sample": [],
+              "agent_name": "LLMQueryRecallAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "FilterAgent",
+            "success": true,
+            "latency_ms": 0.10058400221168995,
+            "fallback_used": false,
+            "metadata": {
+              "input_candidates": 10,
+              "output_candidates": 10,
+              "removed_by_stock": 0,
+              "removed_by_history": 0,
+              "removed_duplicate": 0,
+              "min_stock": 1,
+              "agent_name": "FilterAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "LLMRerankAgent",
+            "success": true,
+            "latency_ms": 2607.618249952793,
+            "fallback_used": false,
+            "metadata": {
+              "rerank_mode": "llm",
+              "rerank_applied": true,
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 2607.0830420358106,
+              "invalid_ids": [],
+              "input_items": 10,
+              "output_items": 10,
+              "summary": "All candidates are in the user's top category 'All Beauty'. No brands match the user's top brands (Zegaine, zenotti), so ranking is based on the original score order.",
+              "risk": "No risk identified.",
+              "agent_name": "LLMRerankAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "MarketingAgent",
+            "success": true,
+            "latency_ms": 2322.6456668926403,
+            "fallback_used": false,
+            "metadata": {
+              "input_items": 10,
+              "output_items": 10,
+              "reason_type": "llm",
+              "llm_reason_mode": "batch_top_n",
+              "llm_reason_top_n": 3,
+              "llm_batch_input_items": 3,
+              "template_reason_items": 7,
+              "llm_success_count": 3,
+              "llm_fallback_count": 0,
+              "llm_errors_sample": [],
+              "llm_invalid_reason_count": 0,
+              "llm_quality_fallback_count": 0,
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 2321.7707499861717,
+              "llm_batch_call_count": 1,
+              "agent_name": "MarketingAgent",
+              "attempt": 1
+            },
+            "error": null
+          }
+        ],
+        "trace_stats": {
+          "agent_latency": {
+            "UserProfileAgent": [
+              0.19945797976106405
+            ],
+            "LLMQueryRecallAgent": [
+              1790.860958979465
+            ],
+            "FilterAgent": [
+              0.10058400221168995
+            ],
+            "LLMRerankAgent": [
+              2607.618249952793
+            ],
+            "MarketingAgent": [
+              2322.6456668926403
+            ]
+          },
+          "agent_success": {
+            "UserProfileAgent": [
+              true
+            ],
+            "LLMQueryRecallAgent": [
+              true
+            ],
+            "FilterAgent": [
+              true
+            ],
+            "LLMRerankAgent": [
+              true
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "agent_fallback": {
+            "UserProfileAgent": [
+              false
+            ],
+            "LLMQueryRecallAgent": [
+              false
+            ],
+            "FilterAgent": [
+              false
+            ],
+            "LLMRerankAgent": [
+              false
+            ],
+            "MarketingAgent": [
+              false
+            ]
+          },
+          "invalid_ids_count": 0,
+          "query_guardrail_count": 0,
+          "llm_reason_fallback_count": 0,
+          "llm_quality_fallback_count": 0,
+          "llm_batch_call_count": 1,
+          "llm_batch_input_items": 3,
+          "template_reason_items": 7,
+          "semantic_queries": [
+            "faux mink false eyelashes natural look volume"
+          ]
+        }
+      },
+      {
+        "mode_name": "llm_query_recall_llm_full",
+        "user_id": "AE2WYNQPBMS67OHFWV63NI4MSJEA",
+        "success": true,
+        "error": null,
+        "latency_ms": 8222.994083887897,
+        "fallback_used": false,
+        "num_final_items": 10,
+        "trace": [
+          {
+            "agent": "UserProfileAgent",
+            "success": true,
+            "latency_ms": 0.3017919370904565,
+            "fallback_used": false,
+            "metadata": {
+              "history_len": 9,
+              "top_categories": [
+                [
+                  "All Beauty",
+                  9
+                ]
+              ],
+              "top_brands": [
+                [
+                  "Beauty Bakerie",
+                  1
+                ],
+                [
+                  "VANALIA",
+                  1
+                ],
+                [
+                  "Sotica",
+                  1
+                ]
+              ],
+              "agent_name": "UserProfileAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "LLMQueryRecallAgent",
+            "success": true,
+            "latency_ms": 1711.5680410061032,
+            "fallback_used": false,
+            "metadata": {
+              "requested_mode": "llm_query_recall",
+              "used_mode": "llm_query_recall",
+              "llm_role": "semantic_query_generation",
+              "llm_decides_products": false,
+              "llm_candidate_scope": "vector_retrieval_from_local_catalog",
+              "semantic_query": "beauty accessories makeup tools nail care",
+              "intent_summary": "User is browsing a variety of beauty products including lipstick, nail care, makeup tools, facial care, and hair accessories, indicating a broad interest in beauty and personal care items.",
+              "preferred_attributes": [
+                "long lasting",
+                "hydrating",
+                "professional",
+                "portable"
+              ],
+              "risk": "medium",
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 1606.2919999239966,
+              "retrieval_backend": "numpy_cosine",
+              "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+              "retrieval_latency_ms": 104.74854102358222,
+              "retrieved_item_count": 50,
+              "num_returned": 10,
+              "fallback_reason": null,
+              "removed_by_query_guardrail": 0,
+              "query_guardrail_sample": [],
+              "agent_name": "LLMQueryRecallAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "FilterAgent",
+            "success": true,
+            "latency_ms": 0.10112498421221972,
+            "fallback_used": false,
+            "metadata": {
+              "input_candidates": 10,
+              "output_candidates": 10,
+              "removed_by_stock": 0,
+              "removed_by_history": 0,
+              "removed_duplicate": 0,
+              "min_stock": 1,
+              "agent_name": "FilterAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "LLMRerankAgent",
+            "success": true,
+            "latency_ms": 3946.662583039142,
+            "fallback_used": false,
+            "metadata": {
+              "rerank_mode": "llm",
+              "rerank_applied": true,
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 3945.9330000681803,
+              "invalid_ids": [],
+              "input_items": 10,
+              "output_items": 10,
+              "summary": "The user's top category is 'All Beauty' and top brands include Beauty Bakerie, VANALIA, Sotica, XBSLPNCED, Bouttarro. None of the candidate products match these brands, so the reranking prioritizes products with higher scores and stock availability, keeping the original order as it already reflects relevance scores.",
+              "risk": "No products from the user's preferred brands are available, which may lead to lower engagement. Additionally, product B07J3GH1W1 has very low stock (1), posing a fulfillment risk.",
+              "agent_name": "LLMRerankAgent",
+              "attempt": 1
+            },
+            "error": null
+          },
+          {
+            "agent": "MarketingAgent",
+            "success": true,
+            "latency_ms": 2558.1034999340773,
+            "fallback_used": false,
+            "metadata": {
+              "input_items": 10,
+              "output_items": 10,
+              "reason_type": "llm",
+              "llm_reason_mode": "batch_top_n",
+              "llm_reason_top_n": 3,
+              "llm_batch_input_items": 3,
+              "template_reason_items": 7,
+              "llm_success_count": 3,
+              "llm_fallback_count": 0,
+              "llm_errors_sample": [],
+              "llm_invalid_reason_count": 0,
+              "llm_quality_fallback_count": 0,
+              "llm_provider": "deepseek",
+              "llm_model": "deepseek-chat",
+              "llm_latency_ms": 2557.3423749301583,
+              "llm_batch_call_count": 1,
+              "agent_name": "MarketingAgent",
+              "attempt": 1
+            },
+            "error": null
+          }
+        ],
+        "trace_stats": {
+          "agent_latency": {
+            "UserProfileAgent": [
+              0.3017919370904565
+            ],
+            "LLMQueryRecallAgent": [
+              1711.5680410061032
+            ],
+            "FilterAgent": [
+              0.10112498421221972
+            ],
+            "LLMRerankAgent": [
+              3946.662583039142
+            ],
+            "MarketingAgent": [
+              2558.1034999340773
+            ]
+          },
+          "agent_success": {
+            "UserProfileAgent": [
+              true
+            ],
+            "LLMQueryRecallAgent": [
+              true
+            ],
+            "FilterAgent": [
+              true
+            ],
+            "LLMRerankAgent": [
+              true
+            ],
+            "MarketingAgent": [
+              true
+            ]
+          },
+          "agent_fallback": {
+            "UserProfileAgent": [
+              false
+            ],
+            "LLMQueryRecallAgent": [
+              false
+            ],
+            "FilterAgent": [
+              false
+            ],
+            "LLMRerankAgent": [
+              false
+            ],
+            "MarketingAgent": [
+              false
+            ]
+          },
+          "invalid_ids_count": 0,
+          "query_guardrail_count": 0,
+          "llm_reason_fallback_count": 0,
+          "llm_quality_fallback_count": 0,
+          "llm_batch_call_count": 1,
+          "llm_batch_input_items": 3,
+          "template_reason_items": 7,
+          "semantic_queries": [
+            "beauty accessories makeup tools nail care"
+          ]
+        }
+      }
+    ]
+  },
+  "summaries": {
+    "genrec_gru_template": {
+      "mode_name": "genrec_gru_template",
+      "num_cases": 5,
+      "success_rate": 1.0,
+      "fallback_rate": 0.0,
+      "avg_latency_ms": 7.657725200988352,
+      "p50_latency_ms": 3.3369589364156127,
+      "p95_latency_ms": 20.762758422642943,
+      "avg_num_final_items": 10.0,
+      "invalid_ids_count": 0,
+      "query_guardrail_count": 0,
+      "llm_reason_fallback_count": 0,
+      "llm_quality_fallback_count": 0,
+      "llm_batch_call_count": 0,
+      "llm_batch_input_items": 0,
+      "template_reason_items": 0,
+      "agent_latency_summary": {
+        "FilterAgent": {
+          "avg_ms": 0.11856700293719769,
+          "p50_ms": 0.08412497118115425,
+          "p95_ms": 0.23169198539108035
+        },
+        "GenerativeRecAgent": {
+          "avg_ms": 3.9641247829422355,
+          "p50_ms": 0.8875000057742,
+          "p95_ms": 13.50969183258712
+        },
+        "MarketingAgent": {
+          "avg_ms": 0.12425838503986597,
+          "p50_ms": 0.12058299034833908,
+          "p95_ms": 0.14489218592643738
+        },
+        "UserProfileAgent": {
+          "avg_ms": 0.23900838568806648,
+          "p50_ms": 0.13516703620553017,
+          "p95_ms": 0.5217331228777766
+        }
+      },
+      "semantic_queries_sample": []
+    },
+    "genrec_gru_llm_full": {
+      "mode_name": "genrec_gru_llm_full",
+      "num_cases": 5,
+      "success_rate": 1.0,
+      "fallback_rate": 0.8,
+      "avg_latency_ms": 5381.2542501837015,
+      "p50_latency_ms": 4967.975292005576,
+      "p95_latency_ms": 7184.844091814011,
+      "avg_num_final_items": 10.0,
+      "invalid_ids_count": 0,
+      "query_guardrail_count": 0,
+      "llm_reason_fallback_count": 6,
+      "llm_quality_fallback_count": 6,
+      "llm_batch_call_count": 5,
+      "llm_batch_input_items": 15,
+      "template_reason_items": 35,
+      "agent_latency_summary": {
+        "FilterAgent": {
+          "avg_ms": 0.11922500561922789,
+          "p50_ms": 0.12312503531575203,
+          "p95_ms": 0.15445041935890913
+        },
+        "GenerativeRecAgent": {
+          "avg_ms": 1.3903169892728329,
+          "p50_ms": 1.5721670351922512,
+          "p95_ms": 1.5974086010828614
+        },
+        "LLMRerankAgent": {
+          "avg_ms": 3092.9144334048033,
+          "p50_ms": 2473.868291010149,
+          "p95_ms": 5146.066708210856
+        },
+        "MarketingAgent": {
+          "avg_ms": 2280.68544161506,
+          "p50_ms": 2305.194666958414,
+          "p95_ms": 2561.448125424795
+        },
+        "UserProfileAgent": {
+          "avg_ms": 0.2182584023103118,
+          "p50_ms": 0.2317499602213502,
+          "p95_ms": 0.2754832152277231
+        }
+      },
+      "semantic_queries_sample": []
+    },
+    "llm_query_recall_template": {
+      "mode_name": "llm_query_recall_template",
+      "num_cases": 5,
+      "success_rate": 1.0,
+      "fallback_rate": 0.0,
+      "avg_latency_ms": 1876.931125181727,
+      "p50_latency_ms": 1845.3469999367371,
+      "p95_latency_ms": 2071.531875571236,
+      "avg_num_final_items": 9.8,
+      "invalid_ids_count": 0,
+      "query_guardrail_count": 2,
+      "llm_reason_fallback_count": 0,
+      "llm_quality_fallback_count": 0,
+      "llm_batch_call_count": 0,
+      "llm_batch_input_items": 0,
+      "template_reason_items": 0,
+      "agent_latency_summary": {
+        "FilterAgent": {
+          "avg_ms": 0.10301661677658558,
+          "p50_ms": 0.10254210792481899,
+          "p95_ms": 0.11102496646344662
+        },
+        "LLMQueryRecallAgent": {
+          "avg_ms": 1873.278541606851,
+          "p50_ms": 1842.0755000552163,
+          "p95_ms": 2067.990616778843
+        },
+        "MarketingAgent": {
+          "avg_ms": 0.14113341458141804,
+          "p50_ms": 0.14249992091208696,
+          "p95_ms": 0.15008365735411644
+        },
+        "UserProfileAgent": {
+          "avg_ms": 0.16247499734163284,
+          "p50_ms": 0.1443750225007534,
+          "p95_ms": 0.2356168581172824
+        }
+      },
+      "semantic_queries_sample": [
+        "facial care kit with sheet masks and hair towel wrap",
+        "anti-aging facial serum oil moisturizer",
+        "personal care grooming tools oral care nail care skincare",
+        "faux mink false eyelashes natural look volume bulk pack",
+        "beauty tools and accessories for makeup and nail care"
+      ]
+    },
+    "llm_query_recall_llm_full": {
+      "mode_name": "llm_query_recall_llm_full",
+      "num_cases": 5,
+      "success_rate": 1.0,
+      "fallback_rate": 0.2,
+      "avg_latency_ms": 7269.263058598153,
+      "p50_latency_ms": 7476.218249998055,
+      "p95_latency_ms": 8113.6086005251855,
+      "avg_num_final_items": 10.0,
+      "invalid_ids_count": 0,
+      "query_guardrail_count": 1,
+      "llm_reason_fallback_count": 1,
+      "llm_quality_fallback_count": 1,
+      "llm_batch_call_count": 5,
+      "llm_batch_input_items": 15,
+      "template_reason_items": 35,
+      "agent_latency_summary": {
+        "FilterAgent": {
+          "avg_ms": 0.10431681293994188,
+          "p50_ms": 0.10112498421221972,
+          "p95_ms": 0.11186662595719099
+        },
+        "LLMQueryRecallAgent": {
+          "avg_ms": 1775.392216606997,
+          "p50_ms": 1790.860958979465,
+          "p95_ms": 1843.111233599484
+        },
+        "LLMRerankAgent": {
+          "avg_ms": 3037.7157834125683,
+          "p50_ms": 3061.899041989818,
+          "p95_ms": 3814.5517414435744
+        },
+        "MarketingAgent": {
+          "avg_ms": 2449.5846499688923,
+          "p50_ms": 2558.1034999340773,
+          "p95_ms": 2559.7196164075285
+        },
+        "UserProfileAgent": {
+          "avg_ms": 0.22626640275120735,
+          "p50_ms": 0.23445801343768835,
+          "p95_ms": 0.29165016021579504
+        }
+      },
+      "semantic_queries_sample": [
+        "facial sheet mask cleanser skincare kit",
+        "anti-aging facial serum with hyaluronic acid and retinol",
+        "personal care grooming tools oral care nail care skincare",
+        "faux mink false eyelashes natural look volume",
+        "beauty accessories makeup tools nail care"
+      ]
+    }
+  }
+}
